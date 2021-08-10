@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">BuyNow</string>
+
+    <string name="slide_title_1">Secure and easy<br>payment</br>  </string>
+    <string name="slide_title_2">Reach your favorite store\n everywhere</string>
+    <string name="slide_title_3">On-time door-step \n delivery</string>
+
+    <string name="slide_desc_1">Make payment directly from your credit/debit<br>card or fund your in-app wallet to make</br> <br>purchases</br>  </string>
+    <string name="slide_desc_2">Our platform puts your favorite place right in\n the palm of your hands</string>
+    <string name="slide_desc_3">Fast, free and convenient delivery on\n thousands of items</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_authn">AuthnActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>
