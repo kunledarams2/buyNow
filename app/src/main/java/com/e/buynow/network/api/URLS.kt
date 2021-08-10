@@ -1,4 +1,4 @@
-package com.e.buynow.api
+package com.e.buynow.network.api
 
 object URLS {
 

@@ -10,7 +10,7 @@ import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
 import com.e.buynow.MainActivity
 import com.e.buynow.R
-import com.e.buynow.callback.EndPoint
+import com.e.buynow.network.callback.EndPoint
 import com.e.buynow.util.ToastUtil
 import com.e.buynow.view.fragment.FragmentTitle
 import dagger.hilt.android.AndroidEntryPoint

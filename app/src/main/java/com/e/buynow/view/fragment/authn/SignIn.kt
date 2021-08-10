@@ -1,13 +1,12 @@
 package com.e.buynow.view.fragment.authn
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.e.buynow.R
-import com.e.buynow.callback.FragmentChanger
+import com.e.buynow.network.callback.FragmentChanger
 import com.e.buynow.view.activity.AuthnActivity
 import com.e.buynow.view.fragment.FragmentTitle
 
