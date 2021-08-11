@@ -1,6 +1,6 @@
-package com.e.buynow.callback
+package com.e.buynow.network.callback
 
-import com.e.buynow.api.URLS
+import com.e.buynow.network.api.URLS
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*

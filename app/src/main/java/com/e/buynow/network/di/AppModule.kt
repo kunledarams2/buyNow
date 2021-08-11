@@ -1,9 +1,7 @@
-package com.e.buynow.di
+package com.e.buynow.network.di
 
-import android.app.Application
-import android.content.Context
-import com.e.buynow.api.URLS
-import com.e.buynow.callback.EndPoint
+import com.e.buynow.network.api.URLS
+import com.e.buynow.network.callback.EndPoint
 
 import dagger.Module
 import dagger.Provides

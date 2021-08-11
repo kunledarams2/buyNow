@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.e.buynow.R
-import com.e.buynow.callback.FragmentChanger
+import com.e.buynow.network.callback.FragmentChanger
 import com.e.buynow.view.fragment.FragmentTitle
 import com.e.buynow.view.fragment.authn.SignIn
 import dagger.hilt.android.AndroidEntryPoint

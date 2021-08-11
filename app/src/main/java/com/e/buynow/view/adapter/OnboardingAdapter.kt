@@ -14,9 +14,10 @@ import com.e.buynow.R
 import com.squareup.picasso.Picasso
 import me.relex.circleindicator.CircleIndicator
 
-class OnBoardingAdapter(context: Context, private val arrayList: IntArray, private val mTitleList:IntArray, private val mSubTitleList:IntArray): RecyclerView.Adapter<OnBoardingAdapter.VHClass>() {
+class OnBoardingAdapter(private val arrayList: IntArray, private val mTitleList:IntArray, private val mSubTitleList:IntArray): RecyclerView.Adapter<OnBoardingAdapter.VHClass>() {
 
 
+    private lateinit var context: Context
    /* private var mcontext: Context = context
     var mItems: IntArray = arrayList
     var mTitle:IntArray=mTitleList
@@ -104,6 +105,7 @@ class OnBoardingAdapter(context: Context, private val arrayList: IntArray, priva
      } */
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHClass {
+        context = parent.context
         val view = LayoutInflater.from(parent.context).inflate(R.layout.onboarding_item,parent, false)
         return VHClass(view)
     }
@@ -134,12 +136,10 @@ class OnBoardingAdapter(context: Context, private val arrayList: IntArray, priva
 //        var circlePageIndicator: CircleIndicator?= itemView.findViewById(R.id.circlePageIndicator)
 
 
-
         fun bindView(position:Int) {
             Picasso.get().load(arrayList[position]).into(sliderImage)
             sliderTitle!!.setText(mTitleList[position])
             sliderSubTitle!!.setText(mSubTitleList[position])
-
         }
 
        /* val runnable = Runnable {
