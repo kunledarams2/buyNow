@@ -13,4 +13,11 @@ interface EndPoint {
     suspend fun createUser(
            @FieldMap  hashMap: HashMap<String, Any>
     ): Response<ResponseBody>
+
+    @FormUrlEncoded
+    @Headers("Accept:application/json", "Content-Type:application/x-www-form-urlencoded")
+    @POST(URLS.login)
+    suspend fun loginUser(
+        @FieldMap  hashMap: HashMap<String, Any>
+    ): Response<ResponseBody>
 }
