@@ -14,7 +14,7 @@ interface EndPoint {
     @POST(URLS.createAccount)
     suspend fun createUser(
            @FieldMap  hashMap: HashMap<String, Any>
-    ): Response<ResponseBody>
+    ): NetworkResponse<User, User>
 
     @FormUrlEncoded
     @Headers("Accept:application/json", "Content-Type:application/x-www-form-urlencoded")
