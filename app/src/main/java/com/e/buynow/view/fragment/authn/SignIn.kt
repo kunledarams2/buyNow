@@ -8,13 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.e.buynow.MainActivity
 import com.e.buynow.R
-<<<<<<<<< Temporary merge branch 1
+import com.e.buynow.network.callback.EndPoint
+
 import com.e.buynow.network.callback.FragmentChanger
-=========
-import com.e.buynow.callback.EndPoint
-import com.e.buynow.callback.FragmentChanger
 import com.e.buynow.util.ToastUtil
->>>>>>>>> Temporary merge branch 2
+
 import com.e.buynow.view.activity.AuthnActivity
 import com.e.buynow.view.fragment.FragmentTitle
 import dagger.hilt.android.AndroidEntryPoint
@@ -73,7 +71,7 @@ class SignIn : FragmentTitle(), View.OnClickListener {
 
         when{
             email.isEmpty()->ToastUtil.showLong(context, "Email is required...")
-            password.isEmpty()->ToastUtil.showLong(context, "Password is required...")
+            password.isEmpty()-> ToastUtil.showLong(context, "Password is required...")
             else ->{
                 val params= HashMap<String, Any>()
                 params["password"] = password
@@ -82,13 +80,13 @@ class SignIn : FragmentTitle(), View.OnClickListener {
                 CoroutineScope(Dispatchers.IO).launch {
                     val response = endPoint.loginUser(params)
                     withContext(Dispatchers.Main){
-                        if (response.isSuccessful){
+                      /*  if (response.isSuccessful){
                             val obj = JSONObject(response.body()!!.string())
                             ToastUtil.log("SignIn", "-_-_-_-$obj")
                             startActivity(Intent(context, MainActivity::class.java))
                         } else{
                             ToastUtil.log("SignIn", "-error_-_-_-${JSONObject(response.errorBody()!!.string())}")
-                        }
+                        }*/
                     }
                 }
             }
