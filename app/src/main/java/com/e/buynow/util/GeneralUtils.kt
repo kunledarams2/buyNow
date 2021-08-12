@@ -103,16 +103,15 @@ object GeneralUtils {
 
     @JvmStatic
     fun showAlertMessage(activity: Activity, title: String?, message: String?) {
-        val alertDialog: AlertDialog.Builder
-        alertDialog = AlertDialog.Builder(
+        val alertDialog: AlertDialog.Builder = AlertDialog.Builder(
             activity,
             android.R.style.Theme_DeviceDefault_Dialog_Alert
         )
 
         alertDialog.setCancelable(true)
             .setIcon(R.mipmap.ic_launcher).setMessage(message)
-            .setTitle(title).setNeutralButton("Ok",
-                { dialog, i -> dialog.dismiss() })
+            .setTitle(title).setNeutralButton("Ok"
+                ) { dialog, i -> dialog.dismiss() }
         getHandler()?.post {
             try {
                 alertDialog.show()
