@@ -16,6 +16,7 @@ import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.e.buynow.MainActivity
 import com.e.buynow.R
+import com.e.buynow.util.GeneralUtils
 import com.e.buynow.view.adapter.OnBoardingAdapter
 import me.relex.circleindicator.CircleIndicator3
 import java.util.*
@@ -26,7 +27,7 @@ class OnBoardingActivity : AppCompatActivity() {
     private val numPages = 0
 
     private var mViewPager: ViewPager2?=null
-    private var sliderHandler = Handler()
+    private var sliderHandler = GeneralUtils.getHandler()
     private var onBoardingSliderAdapter: OnBoardingAdapter?=null
 //    private var circleIndicator:CirclePageIndicator?=null
     private var circlePageIndicator: CircleIndicator3? = null
@@ -58,14 +59,14 @@ class OnBoardingActivity : AppCompatActivity() {
 
 
 
-        onBoardingSliderAdapter = OnBoardingAdapter(this, SLIDES, TITLES ,DESCS)
+        onBoardingSliderAdapter = OnBoardingAdapter( SLIDES, TITLES ,DESCS)
         mViewPager!!.adapter = onBoardingSliderAdapter
 
         mViewPager!!.registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
             override fun onPageScrollStateChanged(state: Int) {
                 super.onPageScrollStateChanged(state)
-                sliderHandler.removeCallbacks(runnable)
-                sliderHandler.postDelayed(runnable, 5000)
+                sliderHandler?.removeCallbacks(runnable)
+                sliderHandler?.postDelayed(runnable, 5000)
             }
 
             override fun onPageScrolled(
@@ -95,12 +96,12 @@ class OnBoardingActivity : AppCompatActivity() {
 
 
 
-        val handler = Handler()
+        val handler = GeneralUtils.getHandler()
 
         val swipTimer = Timer()
         swipTimer.schedule(object : TimerTask() {
             override fun run() {
-                handler.post(runnable)
+                handler?.post(runnable)
             }
         }, 5000, 5000)
 
