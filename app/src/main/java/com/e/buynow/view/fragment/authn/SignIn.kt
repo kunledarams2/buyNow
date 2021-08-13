@@ -43,9 +43,6 @@ class SignIn : FragmentTitle(), View.OnClickListener {
 
         forgotPassword = view.findViewById(R.id.forgot_password)
         forgotPassword.setOnClickListener(this)
-
-
-
     }
 
     companion object {
