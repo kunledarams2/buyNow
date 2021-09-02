@@ -16,7 +16,7 @@
             android:label="@string/title_activity_authn"
             android:theme="@style/Theme.BuyNow.NoActionBar" />
         <activity android:name=".view.activity.OnBoardingActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".view.activity.MainActivity" />
         <activity
             android:name=".view.activity.SplashActivity"
             android:theme="@style/SplashTheme">

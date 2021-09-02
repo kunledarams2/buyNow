@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
 import com.android_dr_app.network.NetworkResponse
-import com.e.buynow.MainActivity
+import com.e.buynow.view.activity.MainActivity
 import com.e.buynow.R
 import com.e.buynow.network.callback.EndPoint
 import com.e.buynow.util.GeneralUtils

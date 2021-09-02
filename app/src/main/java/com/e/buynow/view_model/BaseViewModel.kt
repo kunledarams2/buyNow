@@ -5,7 +5,7 @@ import androidx.lifecycle.*
 import androidx.lifecycle.LiveData
 
 
-abstract class BaseViewModel(app: Application): AndroidViewModel(app)  {
+sealed class BaseViewModel(app: Application): AndroidViewModel(app)  {
 
 //    fun <T, K, R> LiveData<T>.combineWith(
 //        liveData: LiveData<K>,

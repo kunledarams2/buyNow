@@ -6,4 +6,5 @@ object URLS {
     const val  createAccount = "users"
     const val login = "auth"
 //    const val updateUser = ""
+    const val DEALS = "deals"
 }

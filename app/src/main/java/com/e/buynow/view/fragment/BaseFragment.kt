@@ -24,11 +24,11 @@ abstract class BaseFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initialiseWidgets(view)
+        initialiseWidgets()
         Log.e(TAG, "onViewCreated: "+javaClass.simpleName)
     }
 
-    protected  abstract fun initialiseWidgets(view: View)
+    protected  abstract fun initialiseWidgets()
 
     protected fun showToast(msg:String){
         activity?.let { GeneralUtils.message(it, msg) }

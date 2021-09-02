@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="208dp"
+    android:layout_height="229dp"
+    android:layout_marginEnd="14dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="138.5dp"
+        android:layout_height="109dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="208dp"
+        android:layout_height="158dp"
+        android:background="@drawable/grey_box"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_pop_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.08861"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_fav_btm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2785"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_pop_name_txt_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3544"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_pop_desc_txt_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.6456"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_pop_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.06371"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_pop_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9363"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_fav_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2115"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/orange_box"
+            android:padding="4dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_favorite_24"
+            app:layout_constraintStart_toEndOf="@id/guideline_pop_start"
+            app:layout_constraintEnd_toStartOf="@id/guideline_fav_end"
+            app:layout_constraintTop_toBottomOf="@id/guideline_pop_top"
+            app:layout_constraintBottom_toTopOf="@id/guideline_fav_btm"
+            />
+
+        <TextView
+            android:id="@+id/txt_pop_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorText_black"
+            android:fontFamily="@font/mulish_semibold"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4.08dp"
+            android:text="Name"
+            app:layout_constraintStart_toEndOf="@id/guideline_pop_start"
+            app:layout_constraintTop_toBottomOf="@id/guideline_pop_name_txt_top"/>
+
+        <TextView
+            android:id="@+id/txt_pop_item_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorText_blue"
+            android:fontFamily="@font/mulish_regular"
+            android:textSize="12sp"
+            android:lineSpacingExtra="3.06dp"
+            android:text="@string/naira"
+            app:layout_constraintStart_toEndOf="@id/guideline_pop_start"
+            app:layout_constraintTop_toBottomOf="@id/txt_pop_item_name"/>
+
+        <TextView
+            android:id="@+id/txt_pop_item_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorText_black"
+            android:fontFamily="@font/mulish_regular"
+            android:textSize="10sp"
+            android:lineSpacingExtra="4dp"
+            android:text="Made from wooden legs and curved shape make this chair looks simple
+but elegant"
+            app:layout_constraintStart_toEndOf="@id/guideline_pop_start"
+            app:layout_constraintEnd_toStartOf="@id/guideline_pop_end"
+            app:layout_constraintTop_toBottomOf="@id/guideline_pop_desc_txt_top" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
