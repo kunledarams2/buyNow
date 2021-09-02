@@ -22,4 +22,11 @@ interface EndPoint {
     suspend fun loginUser(
         @FieldMap  hashMap: HashMap<String, Any>
     ): NetworkResponse<User, User>
+
+    @FormUrlEncoded
+    @Headers("Accept:application/json", "Content-Type:application/x-www-form-urlencoded")
+    @PUT(URLS.createAccount)
+    suspend fun updateUserInfo(
+        @FieldMap  hashMap: HashMap<String, Any>
+    ): NetworkResponse<User, User>
 }

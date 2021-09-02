@@ -30,6 +30,5 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providerEndPointInterface(retrofit: Retrofit):EndPoint =
-            retrofit.create(EndPoint::class.java)
+    fun providerEndPointInterface(retrofit: Retrofit):EndPoint = retrofit.create(EndPoint::class.java)
 }

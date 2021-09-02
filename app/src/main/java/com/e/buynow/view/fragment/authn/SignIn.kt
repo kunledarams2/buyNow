@@ -2,10 +2,12 @@ package com.e.buynow.view.fragment.authn
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.android_dr_app.network.NetworkResponse
 import com.e.buynow.MainActivity
 import com.e.buynow.R
 import com.e.buynow.network.callback.EndPoint
@@ -80,13 +82,17 @@ class SignIn : FragmentTitle(), View.OnClickListener {
                 CoroutineScope(Dispatchers.IO).launch {
                     val response = endPoint.loginUser(params)
                     withContext(Dispatchers.Main){
-                      /*  if (response.isSuccessful){
-                            val obj = JSONObject(response.body()!!.string())
-                            ToastUtil.log("SignIn", "-_-_-_-$obj")
-                            startActivity(Intent(context, MainActivity::class.java))
-                        } else{
-                            ToastUtil.log("SignIn", "-error_-_-_-${JSONObject(response.errorBody()!!.string())}")
-                        }*/
+                        when (response){
+                            is NetworkResponse.Success->{
+
+                                ToastUtil.log("SignIn", "-_-_-_-${response.body}")
+                                startActivity(Intent(context, MainActivity::class.java))
+                            }
+                            is NetworkResponse.UnknownError ->  ToastUtil.log("SignIn", "-error_-_-_-${response.error}")
+                            is NetworkResponse.NetworkError ->  ToastUtil.log("SignIn", "-error_-_-_-${response.error}")
+                            is NetworkResponse.ApiError ->  ToastUtil.log("SignIn", "-error_-_-_-${response.body.message}")
+
+                        }
                     }
                 }
             }
