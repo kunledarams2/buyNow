@@ -119,7 +119,7 @@
             android:fontFamily="@font/mulish_regular"
             android:textFontWeight="400"
             android:lineSpacingExtra="3.06sp"
-            android:textColor="@color/colorText"
+            android:textColor="@color/colorText_black"
             app:layout_constraintTop_toBottomOf="@id/guideline_text_top"
             app:layout_constraintStart_toEndOf="@id/guideline_text_start"/>
 
@@ -132,7 +132,7 @@
             android:textFontWeight="600"
             android:text="Name"
             android:lineSpacingExtra="4sp"
-            android:textColor="@color/colorText"
+            android:textColor="@color/colorText_black"
             app:layout_constraintTop_toBottomOf="@id/txtHello"
             app:layout_constraintStart_toEndOf="@id/guideline_text_start"/>
 

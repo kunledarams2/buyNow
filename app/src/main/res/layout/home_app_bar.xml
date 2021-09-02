@@ -11,6 +11,29 @@
     tools:ignore="PrivateResource">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutOther"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:fontFamily="@font/mulish_regular"
+            android:textFontWeight="600"
+            android:text="Title"
+            android:lineSpacingExtra="5.1sp"
+            android:textColor="@color/colorText_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -119,7 +142,7 @@
             android:fontFamily="@font/mulish_regular"
             android:textFontWeight="400"
             android:lineSpacingExtra="3.06sp"
-            android:textColor="@color/colorText"
+            android:textColor="@color/colorText_black"
             app:layout_constraintTop_toBottomOf="@id/guideline_text_top"
             app:layout_constraintStart_toEndOf="@id/guideline_text_start"/>
 
@@ -132,7 +155,7 @@
             android:textFontWeight="600"
             android:text="Name"
             android:lineSpacingExtra="4sp"
-            android:textColor="@color/colorText"
+            android:textColor="@color/colorText_black"
             app:layout_constraintTop_toBottomOf="@id/txtHello"
             app:layout_constraintStart_toEndOf="@id/guideline_text_start"/>
 

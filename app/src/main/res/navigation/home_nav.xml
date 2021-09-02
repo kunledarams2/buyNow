@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/homeShoppingFragment2">
+    <fragment
+        android:id="@+id/homeShoppingFragment2"
+        android:name="com.e.buynow.view.fragment.home.HomeShoppingFragment"
+        android:label="fragment_home_shopping"
+        tools:layout="@layout/fragment_home_shopping" >
+        <action
+            android:id="@+id/action_homeShoppingFragment2_to_itemDetailFragment2"
+            app:destination="@id/itemDetailFragment2" />
+        <action
+            android:id="@+id/action_homeShoppingFragment2_to_dealsFragment2"
+            app:destination="@id/dealsFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailFragment2"
+        android:name="com.e.buynow.view.fragment.ItemDetailFragment"
+        android:label="fragment_item_detail"
+        tools:layout="@layout/fragment_item_detail" >
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/dealsFragment2"
+        android:name="com.e.buynow.view.fragment.home.DealsFragment"
+        android:label="fragment_deals"
+        tools:layout="@layout/fragment_deals" />
+
+</navigation>

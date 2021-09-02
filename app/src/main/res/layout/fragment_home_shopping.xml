@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".view.fragment.home.HomeShoppingFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.08"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.92"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.03"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_search_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1016"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_deals_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1574"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_deals_slide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.3634"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_deals_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.3433"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_popular_txt_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.3734"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_popular_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4335"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_popular_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.7611"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.8054"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                app:layout_constraintStart_toEndOf="@id/guideline_start"
+                app:layout_constraintEnd_toStartOf="@id/guideline_end"
+                app:layout_constraintTop_toBottomOf="@id/guideline_top"
+                app:layout_constraintBottom_toTopOf="@id/guideline_search_bottom">
+
+                <EditText
+                    android:id="@+id/edit_filter"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8.095"
+                    android:background="@drawable/edit_box"
+                    android:drawableStart="@drawable/ic_search_24"
+                    android:drawablePadding="14dp"
+                    android:fontFamily="@font/mulish_regular"
+                    android:hint="@string/search"
+                    android:lineSpacingExtra="3.06sp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="5dp"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3175"/>
+
+                <ImageButton
+                    android:id="@+id/btn_filter"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.587"
+                    android:src="@drawable/filter"
+                    android:background="@drawable/blue_box_small"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_deals"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                tools:listitem="@layout/home_item_slide"
+                app:layout_constraintStart_toEndOf="@id/guideline_start"
+                app:layout_constraintEnd_toStartOf="@id/guideline_end"
+                app:layout_constraintTop_toBottomOf="@id/guideline_deals_top"
+                app:layout_constraintBottom_toTopOf="@id/guideline_deals_bottom"
+                />
+            <me.relex.circleindicator.CircleIndicator3
+                android:id="@+id/circlePageIndicator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                app:ci_drawable="@drawable/selected_indicator"
+                app:ci_drawable_unselected="@drawable/un_selected_indicator"
+                app:ci_orientation="horizontal"
+                app:layout_constraintEnd_toStartOf="@id/guideline_end"
+                app:layout_constraintStart_toEndOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/guideline_deals_slide" />
+            <TextView
+                android:id="@+id/text_popular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/guideline_popular_txt_top"
+                app:layout_constraintStart_toEndOf="@id/guideline_start"
+                android:fontFamily="@font/mulish_regular"
+                android:textSize="18sp"
+                android:lineSpacingExtra="2.59dp"
+                android:text="@string/popular"
+                android:textColor="@color/colorText_black"/>
+
+            <TextView
+                android:id="@+id/txt_show_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/text_popular"
+                app:layout_constraintBottom_toBottomOf="@id/text_popular"
+                app:layout_constraintVertical_bias="0.8"
+                app:layout_constraintEnd_toStartOf="@id/guideline_end"
+                android:text="@string/show_all"
+                android:textColor="@color/colorText_blue"
+                android:fontFamily="@font/mulish_regular"
+                android:textSize="12sp"
+                android:lineSpacingExtra="3.06dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                tools:listitem="@layout/item_popular"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toEndOf="@id/guideline_start"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guideline_popular_top"
+                app:layout_constraintBottom_toTopOf="@id/guideline_popular_bottom"/>
+
+            <TextView
+                android:id="@+id/text_feature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/guideline_popular_txt_top"
+                app:layout_constraintStart_toEndOf="@id/guideline_start"
+                android:fontFamily="@font/mulish_regular"
+                android:textSize="18sp"
+                android:lineSpacingExtra="2.59dp"
+                android:text="@string/popular"
+                android:textColor="@color/colorText_black"/>
+
+            <TextView
+                android:id="@+id/txt_categories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/text_popular"
+                app:layout_constraintBottom_toBottomOf="@id/text_popular"
+                app:layout_constraintVertical_bias="0.8"
+                app:layout_constraintEnd_toStartOf="@id/guideline_end"
+                android:text="Categories"
+                android:textColor="@color/colorText_blue"
+                android:fontFamily="@font/mulish_regular"
+                android:textSize="12sp"
+                android:lineSpacingExtra="3.06dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
