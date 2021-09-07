@@ -22,7 +22,7 @@ import com.squareup.picasso.Picasso
 
 object GeneralUtils {
 
-    private const val APP_PREFS_NAME = "com.vertex5.vertex5.app_pref"
+    private const val APP_PREFS_NAME = "com.e.buynow.app_pref"
     private var appPref: SharedPreferences? = null
 
     private var uiHandler: Handler? = null
