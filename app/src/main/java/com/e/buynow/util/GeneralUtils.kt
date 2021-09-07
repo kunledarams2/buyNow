@@ -14,17 +14,20 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.preferencesOf
 import com.e.buynow.R
 import com.e.buynow.view.activity.ExitActivity
 import com.skydoves.balloon.BalloonAnimation
 import com.skydoves.balloon.createBalloon
 import com.squareup.picasso.Picasso
+import java.util.prefs.Preferences
 
 object GeneralUtils {
 
-    private const val APP_PREFS_NAME = "com.e.buynow.app_pref"
-    private var appPref: SharedPreferences? = null
 
+    private var appPref: SharedPreferences? = null
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore( name = AppConstants.APP_PREFS_NAME)
     private var uiHandler: Handler? = null
 
     @JvmStatic
@@ -35,7 +38,7 @@ object GeneralUtils {
     @JvmStatic
     fun getAppPref(context: Context): SharedPreferences? {
         if (appPref == null) appPref = context.getSharedPreferences(
-            APP_PREFS_NAME,
+            AppConstants.APP_PREFS_NAME,
             Context.MODE_PRIVATE
         )
         return appPref

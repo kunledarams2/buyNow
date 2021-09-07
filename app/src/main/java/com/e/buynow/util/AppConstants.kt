@@ -8,4 +8,7 @@ object AppConstants {
     const val FRAG_HOME = "Home"
     const val FRAG_CART = "Cart"
 
+    //Preferences
+    const val APP_PREFS_NAME = "com.e.buynow.app_pref"
+
 }
