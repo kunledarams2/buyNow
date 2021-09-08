@@ -6,29 +6,37 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.os.Handler
 import android.os.Looper
+import android.util.JsonToken
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.preferencesOf
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
 import com.e.buynow.R
 import com.e.buynow.view.activity.ExitActivity
 import com.skydoves.balloon.BalloonAnimation
 import com.skydoves.balloon.createBalloon
 import com.squareup.picasso.Picasso
-import java.util.prefs.Preferences
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 object GeneralUtils {
 
 
     private var appPref: SharedPreferences? = null
-    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore( name = AppConstants.APP_PREFS_NAME)
     private var uiHandler: Handler? = null
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = AppConstants.APP_PREFS_NAME)
+    val TOKEN = stringPreferencesKey(AppConstants.TOKEN)
 
     @JvmStatic
     fun message(context: Context, message: String?) {
@@ -45,12 +53,27 @@ object GeneralUtils {
     }
 
     @JvmStatic
+    suspend fun saveToken(context: Context, token: String) {
+        context.dataStore.edit { settings ->
+            settings[TOKEN] = token
+        }
+    }
+
+    @JvmStatic
+    fun getUserToken( context: Context):Flow<String> {
+        return context.dataStore.data.map { 
+            "Bearer ${it[TOKEN].toString()}"
+        }
+    }
+
+    @JvmStatic
     fun getHandler(): Handler? {
         if (uiHandler== null){
             uiHandler = Handler(Looper.getMainLooper())
         }
         return uiHandler
     }
+
 
     @JvmStatic
     fun showBalloon(view: View, context: Context, msg:String, resColor:Int = R.color.black){

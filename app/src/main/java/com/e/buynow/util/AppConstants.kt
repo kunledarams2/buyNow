@@ -10,5 +10,6 @@ object AppConstants {
 
     //Preferences
     const val APP_PREFS_NAME = "com.e.buynow.app_pref"
+    const val TOKEN = "auth_token"
 
 }
