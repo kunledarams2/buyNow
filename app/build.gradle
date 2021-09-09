@@ -54,7 +54,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     implementation "ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:1.2.1"
-    implementation "ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:1.2.1"
+
 
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
