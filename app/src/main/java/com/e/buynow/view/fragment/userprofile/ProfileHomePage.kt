@@ -7,10 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.e.buynow.R
+import com.e.buynow.view.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_profile_home_page.view.*
 
 
-class ProfileHomePage : Fragment(), View.OnClickListener {
+class ProfileHomePage : BaseFragment(), View.OnClickListener {
+    override fun initialiseWidgets() {
+
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

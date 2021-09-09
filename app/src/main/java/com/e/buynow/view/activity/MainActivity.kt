@@ -11,14 +11,14 @@ import com.e.buynow.databinding.ActivityMainBinding
 import com.e.buynow.util.AppConstants
 import com.e.buynow.util.GeneralUtils
 import com.e.buynow.view.fragment.BaseFragment
-import com.e.buynow.view.fragment.navigation.CartFragment
-import com.e.buynow.view.fragment.navigation.FavFragment
-import com.e.buynow.view.fragment.navigation.HomeFragment
-import com.e.buynow.view.fragment.navigation.NotificationFragment
+import com.e.buynow.view.fragment.navigation.*
+import com.e.buynow.view.fragment.userprofile.ProfileHomePage
 import com.google.android.material.navigation.NavigationBarView
 import com.vertex5.vertex5.view.fragment.main.FragmentHomeAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val TAG = "MainActivity"
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     private var home:HomeFragment?=null
     private var cart:CartFragment?=null
     private var fav:FavFragment?=null
-    private var profile:BaseFragment?=null
+    private var profile: UserProfileFragment?=null
     private var notify:NotificationFragment?=null
     private lateinit var toolbar: Toolbar
 
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         home = HomeFragment.newInstance()
         cart = CartFragment.newInstance()
         fav = FavFragment.newInstance()
-        //profile initialisation
+        profile = UserProfileFragment.newInstance()
         notify = NotificationFragment.newInstance()
 
         listFragments.add(home)
@@ -68,8 +68,8 @@ class MainActivity : AppCompatActivity() {
     private fun setupHomeActionBar() {
         val ab = supportActionBar
         ab?.elevation =0f
-        binding.appbarHome.layoutHome?.visibility = View.VISIBLE
-        binding.appbarHome.layoutOther?.visibility = View.GONE
+        binding.appbarHome.layoutHome?.visibility = View.GONE
+        binding.appbarHome.layoutOther?.visibility = View.VISIBLE
         ab!!.setDisplayShowCustomEnabled(true) // enable overriding the default toolbar layout
         ab.setDisplayHomeAsUpEnabled(false)
         ab.setDisplayShowCustomEnabled(false) // enable overriding the default toolbar layout
@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupOtherActionBar() {
+        Log.d(TAG, "Inside .......setupOtherActionBar...............")
         binding.appbarHome.layoutHome?.visibility = View.GONE
         binding.appbarHome.layoutOther?.visibility = View.VISIBLE
         val ab = supportActionBar
@@ -101,7 +102,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun removeBottomNav() {
-        binding.mainContent.bottomNavigationMain.visibility = View.VISIBLE
+        Log.d(TAG, "Inside......................")
+        binding.mainContent.bottomNavigationMain.visibility = View.GONE
     }
 
     private val navListener =
@@ -117,6 +119,7 @@ class MainActivity : AppCompatActivity() {
 
                     R.id.navigation_cart -> {
                         pager.currentItem = 1
+
                         return@OnItemSelectedListener true
                     }
                     R.id.navigation_fav -> {
@@ -142,18 +145,26 @@ class MainActivity : AppCompatActivity() {
 
         override fun onPageSelected(position: Int) {
             with(binding.mainContent) {
-                if (adapter.getPageTitle(position).equals(AppConstants.FRAG_HOME)) {
-                    setupHomeActionBar()
-                } else if (adapter.getPageTitle(position) == AppConstants.FRAG_CART) {
-                    setupOtherActionBar()
-                } else if (adapter.getPageTitle(position).equals(AppConstants.FRAG_FAVOURITE)) {
-                    setupOtherActionBar()
-                    //bottomNavigationMain.visibility = View.GONE
-                } else if (adapter.getPageTitle(position).equals(AppConstants.FRAG_PROFILE)) {
-                    setupOtherActionBar()
-                } else if (adapter.getPageTitle(position).equals(AppConstants.FRAG_NOTIFICATIONS)) {
-                    setupOtherActionBar()
+                when {
+                    adapter.getPageTitle(position) == AppConstants.FRAG_HOME -> {
+                        setupHomeActionBar()
+                    }
+                    adapter.getPageTitle(position) == AppConstants.FRAG_CART -> {
+                        setupOtherActionBar()
+                    }
+                    adapter.getPageTitle(position) == AppConstants.FRAG_FAVOURITE -> {
+                        setupOtherActionBar()
+                        //bottomNavigationMain.visibility = View.GONE
+                    }
+                    adapter.getPageTitle(position) == AppConstants.FRAG_PROFILE -> {
+                        setupOtherActionBar()
 
+//                        bottomNavigationMain.visibility = View.GONE
+                    }
+                    adapter.getPageTitle(position) == AppConstants.FRAG_NOTIFICATIONS -> {
+                        setupOtherActionBar()
+
+                    }
                 }
             }
         }
@@ -162,7 +173,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getToolbar(label:String) {
-        if (label.equals("HomeFragment") || label.equals("BleDialog")){
+        if (label == "HomeFragment" || label == "BleDialog"){
             setupActionBar()
         }else{
             setupOtherActionBar()

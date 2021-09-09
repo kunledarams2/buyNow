@@ -1,5 +1,6 @@
 package com.e.buynow.view.fragment.userprofile
 
+import android.content.Context
 import android.hardware.usb.UsbEndpoint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.e.buynow.R
 import com.e.buynow.databinding.FragmentPersonalInfoBinding
 import com.e.buynow.network.callback.EndPoint
+import com.e.buynow.view.activity.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_personal_info.view.*
 import kotlinx.coroutines.CoroutineScope
@@ -26,6 +28,11 @@ class PersonalInfo : Fragment() {
 
     @Inject
     lateinit var endpoint: EndPoint
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+    }
 
 
 //    lateinit var binding: FragmentPersonalInfoBinding
