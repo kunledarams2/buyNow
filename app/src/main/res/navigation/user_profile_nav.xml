@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/profileHomePage">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.e.buynow.view.activity.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.e.buynow.view.activity.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileHomePage"
+        android:name="com.e.buynow.view.fragment.userprofile.ProfileHomePage"
+        android:label="fragment_profile_home_page"
+        tools:layout="@layout/fragment_profile_home_page" >
+        <action
+            android:id="@+id/action_profileHomePage_to_personalInfo"
+            app:destination="@id/personalInfo" />
+        <action
+            android:id="@+id/action_profileHomePage_to_MOrders"
+            app:destination="@id/MOrders" />
+        <action
+            android:id="@+id/action_profileHomePage_to_resetPassword"
+            app:destination="@id/resetPassword" />
+        <action
+            android:id="@+id/action_profileHomePage_to_saveAddress"
+            app:destination="@id/saveAddress" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalInfo"
+        android:name="com.e.buynow.view.fragment.userprofile.PersonalInfo"
+        android:label="fragment_personal_info"
+        tools:layout="@layout/fragment_personal_info" >
+        <action
+            android:id="@+id/action_personalInfo_to_profileHomePage"
+            app:destination="@id/profileHomePage" />
+    </fragment>
+    <fragment
+        android:id="@+id/MOrders"
+        android:name="com.e.buynow.view.fragment.userprofile.MOrders"
+        android:label="fragment_m_orders"
+        tools:layout="@layout/fragment_m_orders" >
+        <action
+            android:id="@+id/action_MOrders_to_profileHomePage"
+            app:destination="@id/profileHomePage" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetPassword"
+        android:name="com.e.buynow.view.fragment.userprofile.ResetPassword"
+        android:label="fragment_reset_password"
+        tools:layout="@layout/fragment_reset_password" >
+        <action
+            android:id="@+id/action_resetPassword_to_profileHomePage"
+            app:destination="@id/profileHomePage" />
+    </fragment>
+    <fragment
+        android:id="@+id/saveAddress"
+        android:name="com.e.buynow.view.fragment.userprofile.SaveAddress"
+        android:label="fragment_save_address"
+        tools:layout="@layout/fragment_save_address" >
+        <action
+            android:id="@+id/action_saveAddress_to_profileHomePage"
+            app:destination="@id/profileHomePage" />
+        <action
+            android:id="@+id/action_saveAddress_to_addNewAddress"
+            app:destination="@id/addNewAddress" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewAddress"
+        android:name="com.e.buynow.view.fragment.userprofile.AddNewAddress"
+        android:label="fragment_add_new_address"
+        tools:layout="@layout/fragment_add_new_address" >
+        <action
+            android:id="@+id/action_addNewAddress_to_saveAddress"
+            app:destination="@id/saveAddress" />
+    </fragment>
+</navigation>

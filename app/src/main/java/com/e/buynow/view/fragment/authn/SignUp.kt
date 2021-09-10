@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
+import com.android_dr_app.network.NetworkResponse
 import com.e.buynow.view.activity.MainActivity
 import com.e.buynow.R
 import com.e.buynow.network.callback.EndPoint
+import com.e.buynow.util.GeneralUtils
 import com.e.buynow.util.ToastUtil
 import com.e.buynow.view.fragment.FragmentTitle
 import dagger.hilt.android.AndroidEntryPoint
@@ -88,13 +90,22 @@ class SignUp : FragmentTitle() {
                 CoroutineScope(Dispatchers.IO).launch {
                     val response  = endPoint.createUser(params)
                     withContext(Dispatchers.Main){
-                        if (response.isSuccessful){
+
+                        when (response){
+                            is NetworkResponse.Success->{
+                                ToastUtil.log("SignUp", "Response: ${response.body}")
+                                startActivity(Intent(context, MainActivity::class.java))
+                            }
+                            is NetworkResponse.NetworkError-> ToastUtil.showLong(context, "${response.error}")
+                            is NetworkResponse.ApiError -> ToastUtil.log("SignUp", response.code.toString())
+                            is NetworkResponse.UnknownError-> GeneralUtils.showAlertMessage(requireActivity(), "Error", response.error!!.message)
+                        }
+
+                    /*    if (response.isSuccessful){
 
                             val obj = JSONObject(response.body()!!.string())
-                            ToastUtil.log("SignUp", "Response: $obj")
 
-                            startActivity(Intent(context, MainActivity::class.java))
-                        } else  ToastUtil.log("SignUp", "Error--_--_--_-__-_  ${JSONObject(response.errorBody()!!.string())}")
+                        } else  ToastUtil.log("SignUp", "Error--_--_--_-__-_  ${JSONObject(response.errorBody()!!.string())}")*/
                     }
 
                 }
