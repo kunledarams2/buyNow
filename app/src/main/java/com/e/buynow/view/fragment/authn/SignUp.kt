@@ -8,9 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
+import androidx.navigation.fragment.findNavController
 import com.android_dr_app.network.NetworkResponse
 import com.e.buynow.view.activity.MainActivity
 import com.e.buynow.R
+import com.e.buynow.databinding.FragmentPersonalInfoBinding
+import com.e.buynow.databinding.FragmentSignInBinding
+import com.e.buynow.databinding.FragmentSignUpBinding
 import com.e.buynow.network.callback.EndPoint
 import com.e.buynow.util.GeneralUtils
 import com.e.buynow.util.ToastUtil
@@ -26,12 +30,9 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class SignUp : FragmentTitle() {
 
-    lateinit var mPassword: EditText
-    lateinit var mLastName: EditText
-    lateinit var mFirstName: EditText
-    lateinit var mEmail: EditText
-    lateinit var mUsername: EditText
-    lateinit var createBtn:AppCompatButton
+
+    private var _binding: FragmentSignUpBinding? = null
+    private val binding get() = _binding!!
 
     @Inject
     lateinit var endPoint: EndPoint
@@ -48,36 +49,32 @@ class SignUp : FragmentTitle() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
+//        val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
+        _binding = FragmentSignUpBinding.inflate(inflater,container,false)
+        val view = binding.root
         setContentView(view)
         return view
     }
 
     private fun setContentView(view: View) {
-        mEmail = view.findViewById(R.id.email)
-        mFirstName = view.findViewById(R.id.first_name)
-        mLastName = view.findViewById(R.id.last_name)
-        mPassword = view.findViewById(R.id.password)
-        mUsername = view.findViewById(R.id.username)
-
-        createBtn =view.findViewById(R.id.createBtn)
-        createBtn.setOnClickListener { createAccount() }
+        binding.createBtn.setOnClickListener { createAccount() }
+        binding.backBtn.setOnClickListener { findNavController().navigate(R.id.action_signUp_to_signIn) }
 
     }
 
     private fun createAccount() {
-        val eEmail = mEmail.text.toString().trim()
-        val eFirstName = mFirstName.text.toString().trim()
-        val eLastName = mLastName.text.toString().trim()
-        val ePassword = mPassword.text.toString().trim()
-        val eUsername = mUsername.text.toString().trim()
+        val eEmail = binding.email.text.toString().trim()
+        val eFirstName = binding.firstName.text.toString().trim()
+        val eLastName = binding.lastName.text.toString().trim()
+        val ePassword = binding.password.text.toString().trim()
+        val eUsername = binding.username.text.toString().trim()
 
         when {
             !Patterns.EMAIL_ADDRESS.matcher(eEmail).matches() || eEmail.isEmpty() -> ToastUtil.showLong(context, "Invalid Email")
             eFirstName.isEmpty() -> ToastUtil.showLong(context, "First name is required....")
             eLastName.isEmpty() -> ToastUtil.showLong(context, "Last name is required....")
             ePassword.isEmpty() -> ToastUtil.showLong(context, "Password is required....")
-            eUsername.isEmpty()-> ToastUtil.showLong(context, "Username is reaquired...")
+            eUsername.isEmpty()-> ToastUtil.showLong(context, "Username is required...")
             else -> {
                 val params=HashMap<String, Any>()
                 params["firstName"]= eFirstName
@@ -101,11 +98,6 @@ class SignUp : FragmentTitle() {
                             is NetworkResponse.UnknownError-> GeneralUtils.showAlertMessage(requireActivity(), "Error", response.error!!.message)
                         }
 
-                    /*    if (response.isSuccessful){
-
-                            val obj = JSONObject(response.body()!!.string())
-
-                        } else  ToastUtil.log("SignUp", "Error--_--_--_-__-_  ${JSONObject(response.errorBody()!!.string())}")*/
                     }
 
                 }
@@ -114,6 +106,10 @@ class SignUp : FragmentTitle() {
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 
     companion object {
 

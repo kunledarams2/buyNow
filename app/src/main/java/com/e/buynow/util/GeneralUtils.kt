@@ -23,6 +23,7 @@ import androidx.datastore.preferences.core.preferencesOf
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.e.buynow.R
+import com.e.buynow.model.Data
 import com.e.buynow.view.activity.ExitActivity
 import com.skydoves.balloon.BalloonAnimation
 import com.skydoves.balloon.createBalloon
@@ -37,6 +38,11 @@ object GeneralUtils {
     private var uiHandler: Handler? = null
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = AppConstants.APP_PREFS_NAME)
     val TOKEN = stringPreferencesKey(AppConstants.TOKEN)
+    val FIRST_NAME = stringPreferencesKey(AppConstants.FIRST_NAME)
+    val LAST_NAME = stringPreferencesKey(AppConstants.LAST_NAME)
+    val USER_ID = stringPreferencesKey(AppConstants.USER_ID)
+    val USERNAME = stringPreferencesKey(AppConstants.USERNAME)
+    val EMAIL = stringPreferencesKey(AppConstants.EMAIL)
 
     @JvmStatic
     fun message(context: Context, message: String?) {
@@ -65,6 +71,35 @@ object GeneralUtils {
             "Bearer ${it[TOKEN].toString()}"
         }
     }
+
+    suspend fun setUserDetails(context: Context, data: Data){
+        context.dataStore.edit { store->
+            store[FIRST_NAME] = data.firstName
+            store[LAST_NAME] = data.lastName
+            store[EMAIL] = data.email
+            store[USERNAME]= data.username
+            store[USER_ID] = data._id
+            store[TOKEN] = data.token
+        }
+    }
+
+
+    fun getUserDetails( context: Context):Flow<Data> = context.dataStore.data.map { preference-> Data(
+            preference[TOKEN] ?: "",
+            preference[EMAIL] ?: "",
+            preference[USER_ID] ?: "",
+            preference[USERNAME] ?: "",
+            preference[LAST_NAME] ?: "",
+            preference[FIRST_NAME] ?: "",
+
+            )
+    }
+
+    fun getData(context: Context, key:String): Flow<String> = context.dataStore.data.map {
+        it[stringPreferencesKey(key)]!!
+    }
+
+
 
     @JvmStatic
     fun getHandler(): Handler? {

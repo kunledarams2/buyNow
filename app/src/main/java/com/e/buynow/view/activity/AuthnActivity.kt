@@ -11,14 +11,13 @@ import com.e.buynow.view.fragment.authn.SignIn
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AuthnActivity : AppCompatActivity(), FragmentChanger {
+class AuthnActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authn)
 
-        fragmentChanger(SignIn.newInstance())
     }
-
+/*
     override fun fragmentChanger(fragmentTitle: FragmentTitle) {
 
 //        currentPageTitle=fragmentTitle.title
@@ -30,5 +29,5 @@ class AuthnActivity : AppCompatActivity(), FragmentChanger {
         fragmentManager.beginTransaction().replace(R.id.frame, fragment)
             .commit()
 
-    }
+    }*/
 }

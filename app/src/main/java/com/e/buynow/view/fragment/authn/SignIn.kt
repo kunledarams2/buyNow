@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.android_dr_app.network.NetworkResponse
 //import com.e.buynow.MainActivity
 import com.e.buynow.R
+import com.e.buynow.databinding.FragmentSignUpBinding
 import com.e.buynow.network.callback.EndPoint
 
 import com.e.buynow.network.callback.FragmentChanger
+import com.e.buynow.util.GeneralUtils
 import com.e.buynow.util.ToastUtil
 
 import com.e.buynow.view.activity.AuthnActivity
@@ -35,6 +38,9 @@ class SignIn : FragmentTitle(), View.OnClickListener {
     lateinit var forgotPassword:TextView
     lateinit var fragmentChanger: FragmentChanger
 
+    private var _binding: FragmentSignUpBinding? = null
+    private val binding get() = _binding!!
+
     @Inject
     lateinit var endPoint: EndPoint
 
@@ -42,7 +48,7 @@ class SignIn : FragmentTitle(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            fragmentChanger = activity as AuthnActivity
+//            fragmentChanger = activity as AuthnActivity
 
         }
     }
@@ -85,7 +91,7 @@ class SignIn : FragmentTitle(), View.OnClickListener {
                     withContext(Dispatchers.Main){
                         when (response){
                             is NetworkResponse.Success->{
-
+                                GeneralUtils.setUserDetails(context!!, response.body.data)
                                 ToastUtil.log("SignIn", "-_-_-_-${response.body}")
                                 startActivity(Intent(context, MainActivity::class.java))
                             }
@@ -113,8 +119,13 @@ class SignIn : FragmentTitle(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         when (p0!!.id){
-            R.id.create_account ->fragmentChanger.fragmentChanger(SignUp.newInstance())
-            R.id.forgot_password->fragmentChanger.fragmentChanger(ForgottenPassword.newInstance())
+            R.id.create_account ->findNavController().navigate(R.id.action_signIn_to_signUp)
+            R.id.forgot_password->findNavController().navigate(R.id.action_signIn_to_forgottenPassword)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

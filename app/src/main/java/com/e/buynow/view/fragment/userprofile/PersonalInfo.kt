@@ -7,15 +7,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.e.buynow.R
 import com.e.buynow.databinding.FragmentPersonalInfoBinding
 import com.e.buynow.network.callback.EndPoint
+import com.e.buynow.util.GeneralUtils
 import com.e.buynow.view.activity.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_personal_info.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -58,6 +61,20 @@ class PersonalInfo : Fragment() {
 
     private fun setContentView(view: View){
         view.back_btn.setOnClickListener { findNavController().navigate(R.id.action_personalInfo_to_profileHomePage) }
+
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewLifecycleOwner.lifecycleScope.launch {
+            GeneralUtils.getUserDetails(context!!).collect {
+                binding.firstName.setText(it.firstName)
+                binding.lastName.setText(it.lastName)
+                binding.email.setText(it.email)
+
+            }
+
+        }
     }
 
     private fun updateUserInfo(){

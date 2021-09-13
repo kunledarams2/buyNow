@@ -4,19 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 
-/*"data": {
-    "emailVerified": false,
-    "created": "2021-05-13T17:15:35.276Z",
-    "_id": "609d6055a39ec5462bab5a72",
-    "email": "riskrisky@gmail.com",
-    "username": "riskrisky",
-    "lastName": "Odegbagi",
-    "firstName": "Odesare",
-    "__v": 0,
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDlkNjA1NWEzOWVjNTQ2MmJhYjVhNzIiLCJpYXQiOjE2MjA5MjY1NTB9.cUZJRh0rXnDL_iXMDPNqEXcXHz3QAVk5IrSq4aRod2g"
-  },
-  "status": "successful",
-  "message": "Sign up successful"*/
+
 
 @JsonClass(generateAdapter = true)
 data class User(
@@ -37,7 +25,14 @@ data class Data(
     @Json(name = "email")
     var email:String,
     @Json(name = "_id")
-    var _id:String
+    var _id:String,
+    @Json(name = "username")
+    var username:String,
+    @Json(name = "lastName")
+    var lastName:String,
+    @Json(name = "firstName")
+    var firstName:String,
+
 )
 
 //data class Error()
