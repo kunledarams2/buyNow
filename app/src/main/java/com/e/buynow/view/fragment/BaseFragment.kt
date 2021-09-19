@@ -19,7 +19,7 @@ abstract class BaseFragment: Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-//        listener = context as FragmentListener
+        listener = context as FragmentListener
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

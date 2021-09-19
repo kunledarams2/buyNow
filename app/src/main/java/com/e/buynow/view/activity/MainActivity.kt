@@ -12,6 +12,7 @@ import com.e.buynow.R
 import com.e.buynow.databinding.ActivityMainBinding
 import com.e.buynow.util.AppConstants
 import com.e.buynow.util.GeneralUtils
+import com.e.buynow.view.activity.interfaces.FragmentListener
 import com.e.buynow.view.fragment.BaseFragment
 import com.e.buynow.view.fragment.navigation.*
 import com.e.buynow.view.fragment.userprofile.ProfileHomePage
@@ -21,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), FragmentListener {
 
     private val TAG = "MainActivity"
     private lateinit var binding: ActivityMainBinding
@@ -104,7 +105,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun removeBottomNav() {
+    override fun hideBNV() {
+        removeBottomNav()
+    }
+
+    private fun removeBottomNav() {
         Log.d(TAG, "Inside......................")
         binding.mainContent.bottomNavigationMain.visibility = View.GONE
     }

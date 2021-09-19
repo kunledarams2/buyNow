@@ -59,6 +59,20 @@ object GeneralUtils {
     }
 
     @JvmStatic
+    suspend fun saveInDataStore(context: Context, data:Any, key:Preferences.Key<Any?>){
+        context.dataStore.edit {
+            it[key] = data
+        }
+    }
+
+    @JvmStatic
+    fun retrieveFromDataStore(context: Context, key:Preferences.Key<Any>):Any{
+        return context.dataStore.data.map {
+            it[key]
+        }
+    }
+
+    @JvmStatic
     suspend fun saveToken(context: Context, token: String) {
         context.dataStore.edit { settings ->
             settings[TOKEN] = token
