@@ -29,6 +29,5 @@ class AuthnActivity : AppCompatActivity(), FragmentChanger {
         val fragmentManager: FragmentManager =supportFragmentManager
         fragmentManager.beginTransaction().replace(R.id.frame, fragment)
             .commit()
-
     }
 }

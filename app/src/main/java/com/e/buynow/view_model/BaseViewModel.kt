@@ -3,9 +3,11 @@ package com.e.buynow.view_model
 import android.app.Application
 import androidx.lifecycle.*
 import androidx.lifecycle.LiveData
+import dagger.hilt.android.AndroidEntryPoint
 
 
-sealed class BaseViewModel(app: Application): AndroidViewModel(app)  {
+@AndroidEntryPoint
+abstract class BaseViewModel(app: Application): AndroidViewModel(app)  {
 
 //    fun <T, K, R> LiveData<T>.combineWith(
 //        liveData: LiveData<K>,
@@ -20,6 +22,8 @@ sealed class BaseViewModel(app: Application): AndroidViewModel(app)  {
 //        }
 //        return result
 //    }
+
+
 
     fun <A, B> zip2LiveData(a: LiveData<A>, b: LiveData<B>): LiveData<Pair<A, B>> {
         return MediatorLiveData<Pair<A, B>>().apply {

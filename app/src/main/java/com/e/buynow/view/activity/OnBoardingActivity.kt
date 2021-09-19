@@ -112,10 +112,6 @@ class OnBoardingActivity : AppCompatActivity() {
         mGetStarted!!.setOnClickListener {
             startActivity(Intent(this, AuthnActivity::class.java))
         }
-
-
-
-
     }
 
     val runnable = Runnable {
@@ -128,6 +124,5 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-
     }
 }
