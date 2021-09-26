@@ -44,8 +44,6 @@ class MainActivity : AppCompatActivity(), FragmentListener {
         setupHomeActionBar()
         setContentView(view)
         initialiseWidget()
-
-
     }
 
     private fun initialisePrequisites() {

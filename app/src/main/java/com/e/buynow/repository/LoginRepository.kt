@@ -1,8 +1,10 @@
 package com.e.buynow.repository
 
+import dagger.hilt.android.scopes.ActivityRetainedScoped
 import kotlinx.coroutines.CoroutineScope
 
-abstract class LoginRepository (protected open val scope: CoroutineScope){
+@ActivityRetainedScoped
+class LoginRepository (protected open val scope: CoroutineScope){
 
 
 

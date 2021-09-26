@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import dagger.hilt.android.AndroidEntryPoint
 
 
-@AndroidEntryPoint
 abstract class BaseViewModel(app: Application): AndroidViewModel(app)  {
 
 //    fun <T, K, R> LiveData<T>.combineWith(

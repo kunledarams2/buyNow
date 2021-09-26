@@ -57,7 +57,8 @@ class PersonalInfo : Fragment() {
     }
 
     private fun setContentView(view: View){
-        view.back_btn.setOnClickListener { findNavController().navigate(R.id.action_personalInfo_to_profileHomePage) }
+//        _binding.back_btn.setOnClickListener {
+//            findNavController().navigate(R.id.action_personalInfo_to_profileHomePage) }
     }
 
     private fun updateUserInfo(){

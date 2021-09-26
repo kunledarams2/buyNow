@@ -24,4 +24,6 @@
     <string name="popular">Popular</string>
     <string name="show_all">Show All</string>
     <string name="naira">₦</string>
+    <string name="featured">Featured</string>
+    <string name="item_price">Buy ₦%1$.2f</string>
 </resources>

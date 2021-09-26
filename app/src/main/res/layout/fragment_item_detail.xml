@@ -39,6 +39,7 @@
         android:id="@+id/img_item_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        tools:listitem="@layout/image_details"
         app:layout_constraintStart_toEndOf="@id/guideline_padding_start"
         app:layout_constraintEnd_toStartOf="@id/guideline_padding_end"
         app:layout_constraintTop_toTopOf="parent"
@@ -55,10 +56,12 @@
         app:ci_orientation="horizontal"
         app:layout_constraintStart_toEndOf="@id/guideline_padding_start"
         app:layout_constraintEnd_toStartOf="@id/guideline_padding_end"
-        app:layout_constraintTop_toBottomOf="@id/img_item_list"/>
+        app:layout_constraintTop_toBottomOf="@id/img_item_list"
+        app:layout_constraintBottom_toTopOf="@id/layout_details"/>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_details"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/bottom_blue_box"
@@ -66,6 +69,172 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline_details_top"
         app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.06389"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_store_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_color_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2472"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_desc_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3389"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_desc_btm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5611"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_btn_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.6389"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_btn_btm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8056"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_img_btn_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2667"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.112"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_text_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.824"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9067"/>
+
+        <TextView
+            android:id="@+id/txt_prod_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sabeb Summer Chair"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:lineSpacingExtra="5.1dp"
+            android:fontFamily="@font/mulish_semibold"
+            app:layout_constraintTop_toBottomOf="@id/guideline_top"
+            app:layout_constraintStart_toEndOf="@id/guideline_start"
+            />
+
+        <TextView
+            android:id="@+id/txt_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/guideline_top"
+            app:layout_constraintEnd_toStartOf="@id/guideline_end"
+            android:drawableStart="@drawable/ic_star_rate_24"
+            android:drawablePadding="8dp"
+            android:text="0.0"
+            android:textSize="14sp"
+            android:lineSpacingExtra="3.57dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/mulish_regular"/>
+
+        <TextView
+            android:id="@+id/txt_store_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IKAE Furniture Store"
+            android:drawablePadding="8dp"
+            android:drawableEnd="@drawable/ic_navigate_next_24"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:lineSpacingExtra="3.57dp"
+            android:fontFamily="@font/mulish_light"
+            app:layout_constraintTop_toBottomOf="@id/guideline_store_top"
+            app:layout_constraintStart_toEndOf="@id/guideline_start"
+            />
+
+        <TextView
+            android:id="@+id/txt_prod_desc"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Sabeb Summer Chair"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:lineSpacingExtra="8dp"
+            android:fontFamily="@font/mulish_light"
+            app:layout_constraintTop_toBottomOf="@id/guideline_desc_top"
+            app:layout_constraintBottom_toTopOf="@id/guideline_desc_btm"
+            app:layout_constraintStart_toEndOf="@id/guideline_start"
+            app:layout_constraintEnd_toStartOf="@id/guideline_text_end"
+            />
+
+        <ImageButton
+            android:id="@+id/btn_to_cart"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/cart"
+            android:background="@drawable/ic_category"
+            app:layout_constraintStart_toEndOf="@id/guideline_start"
+            app:layout_constraintEnd_toStartOf="@id/guideline_img_btn_end"
+            app:layout_constraintTop_toBottomOf="@id/guideline_btn_top"
+            app:layout_constraintBottom_toTopOf="@id/guideline_btn_btm"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="14dp"
+            android:text="@string/item_price"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:lineSpacingExtra="5.01dp"
+            android:fontFamily="@font/mulish_semibold"
+            android:background="@drawable/grey_btn"
+            android:textColor="@color/colorText_blue"
+            app:layout_constraintStart_toEndOf="@id/btn_to_cart"
+            app:layout_constraintEnd_toStartOf="@id/guideline_end"
+            app:layout_constraintTop_toBottomOf="@id/guideline_btn_top"
+            app:layout_constraintBottom_toTopOf="@id/guideline_btn_btm"/>
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

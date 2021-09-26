@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="107dp"
+    android:layout_marginBottom="1dp"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1589"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_btm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8318"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_img_btm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5514"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_icon_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1312"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_text_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1625"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_text_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9656"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_notify_location_24"
+        android:scaleType="center"
+        android:background="@drawable/ic_notify_circle_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline_icon_img"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top"
+        app:layout_constraintBottom_toTopOf="@id/guideline_img_btm"/>
+
+    <TextView
+        android:id="@+id/txt_not_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorText_black"
+        android:text="Confirm Location"
+        android:textSize="12sp"
+        android:lineSpacingExtra="3.06dp"
+        android:fontFamily="@font/mulish_semibold"
+        app:layout_constraintStart_toEndOf="@id/guideline_text_start"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top"/>
+
+    <TextView
+        android:id="@+id/txt_not_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorText_black"
+        android:text="Please confirm your exact location before we sent your package"
+        android:textSize="12sp"
+        android:lineSpacingExtra="3.06dp"
+        android:fontFamily="@font/mulish_regular"
+        app:layout_constraintStart_toEndOf="@id/guideline_text_start"
+        app:layout_constraintEnd_toStartOf="@id/guideline_text_end"
+        app:layout_constraintTop_toBottomOf="@id/txt_not_title"/>
+
+    <TextView
+        android:id="@+id/txt_not_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorText_black"
+        android:text="March 20, 2020 (09:50 AM)"
+        android:textSize="10sp"
+        android:lineSpacingExtra="2.55dp"
+        android:fontFamily="@font/mulish_light"
+        app:layout_constraintStart_toEndOf="@id/guideline_text_start"
+        app:layout_constraintBottom_toTopOf="@id/guideline_btm"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

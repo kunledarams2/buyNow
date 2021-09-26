@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.fragment.navigation.NotificationFragment">
+    tools:context=".view.fragment.home.DealsFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_start"
@@ -18,15 +18,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9253"
-        />
+        app:layout_constraintGuide_percent="0.928"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_notification"
-        tools:listitem="@layout/item_notification"
+        android:id="@+id/list_deal"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        tools:listitem="@layout/deals_item"
         android:background="#ECECEC"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_categories"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#ECECEC"
+        android:visibility="gone"
+        tools:listitem="@layout/item_category"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"/>
 

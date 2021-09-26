@@ -30,6 +30,6 @@
         android:id="@+id/dealsFragment2"
         android:name="com.e.buynow.view.fragment.home.DealsFragment"
         android:label="fragment_deals"
-        tools:layout="@layout/fragment_deals" />
+        tools:layout="@layout/fragment_deals_categories" />
 
 </navigation>

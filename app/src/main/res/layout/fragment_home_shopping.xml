@@ -16,6 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_start"
                 android:layout_width="wrap_content"
@@ -35,63 +36,70 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.03"/>
+                app:layout_constraintGuide_percent="0.02354"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_search_bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.1016"/>
+                app:layout_constraintGuide_percent="0.0796"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_deals_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.1574"/>
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline_deals_slide"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.3634"/>
+                app:layout_constraintGuide_percent="0.1087"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_deals_bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.3433"/>
+                app:layout_constraintGuide_percent="0.2545"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_deals_slide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2702"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_popular_txt_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.3734"/>
+                app:layout_constraintGuide_percent="0.3038"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_popular_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.4335"/>
+                app:layout_constraintGuide_percent="0.3509"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_popular_bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.7611"/>
+                app:layout_constraintGuide_percent="0.5964"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_feature_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.8054"/>
+                app:layout_constraintGuide_percent="0.6311"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_feature_list_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.6749"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -199,7 +207,7 @@
                 android:fontFamily="@font/mulish_regular"
                 android:textSize="18sp"
                 android:lineSpacingExtra="2.59dp"
-                android:text="@string/popular"
+                android:text="@string/featured"
                 android:textColor="@color/colorText_black"/>
 
             <TextView
@@ -215,6 +223,23 @@
                 android:fontFamily="@font/mulish_regular"
                 android:textSize="12sp"
                 android:lineSpacingExtra="3.06dp"/>
+            
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_fcategories"
+                android:layout_width="0dp"
+                android:layout_height="226dp"
+                tools:listitem="@layout/item_featured"
+                app:layout_constraintStart_toEndOf="@id/guideline_start"
+                app:layout_constraintEnd_toStartOf="@id/guideline_end"
+                app:layout_constraintTop_toBottomOf="@id/guideline_feature_list_top"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/list_fcategories"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

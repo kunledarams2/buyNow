@@ -3,8 +3,12 @@ package com.e.buynow.model
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class Product (@SerializedName("images")
+data class Product (@SerializedName("tag") val tag:Array<String>,
+                    @SerializedName("images")
                     val images:Array<String>,
+                    @SerializedName("sizes")
+                    val sizes: Array<Int>,
+                    @SerializedName("colors")val colors:Array<String>,
                     @SerializedName("active")
                     val active:Boolean,
                     @SerializedName("_id")
