@@ -1,45 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="134dp"
-    android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.088"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_img_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.32"/>
+    android:layout_height="132dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="1dp"
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2089"/>
+        app:layout_constraintGuide_percent="0.1515"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.791"/>
+        app:layout_constraintGuide_percent="0.8106"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_perc_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_text_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3344"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_perc_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.09062"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_img_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2875"/>
+
 
     <ImageView
+        android:id="@+id/img_item"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guideline_img_end"
         app:layout_constraintTop_toBottomOf="@id/guideline_top"
+        app:layout_constraintBottom_toTopOf="@id/guideline_bottom"/>
+
+    <TextView
+        android:id="@+id/txt_discount"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="-00%"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:lineSpacingExtra="2.55dp"
+        android:gravity="center"
+        android:fontFamily="@font/mulish_regular"
+        android:background="@color/discount_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline_perc_end"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top"
+        app:layout_constraintBottom_toTopOf="@id/guideline_perc_bottom"/>
+
+    <TextView
+        android:id="@+id/txt_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:lineSpacingExtra="4.0dp"
+        android:textColor="@color/colorText_black"
+        android:fontFamily="@font/mulish_regular"
+        android:text="Sabeb Summer Chair"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top"
+        app:layout_constraintStart_toEndOf="@id/guideline_text_start"/>
+
+    <TextView
+        android:id="@+id/txt_item_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Chair"
+        android:textSize="12sp"
+        android:lineSpacingExtra="3.06dp"
+        android:textColor="@color/colorText_black"
+        android:fontFamily="@font/mulish_light"
+        app:layout_constraintStart_toEndOf="@id/guideline_text_start"
+        app:layout_constraintTop_toBottomOf="@+id/txt_item_name"/>
+
+    <TextView
+        android:id="@+id/txt_item_disc_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/colorText_black"
+        android:fontFamily="@font/mulish_regular"
+        android:text="$125.00"
         app:layout_constraintBottom_toTopOf="@id/guideline_bottom"
-        />
+        app:layout_constraintStart_toEndOf="@id/guideline_text_start"/>
+
+    <TextView
+        android:id="@+id/txt_orig_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:lineSpacingExtra="2.81dp"
+        android:layout_marginStart="4dp"
+        android:text="$225.00"
+        android:background="@drawable/strike_across"
+        android:textColor="@color/colorText_grey"
+        app:layout_constraintBottom_toTopOf="@id/guideline_bottom"
+        app:layout_constraintStart_toEndOf="@id/txt_item_disc_price"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

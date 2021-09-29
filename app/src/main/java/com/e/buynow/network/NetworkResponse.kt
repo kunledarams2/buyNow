@@ -23,4 +23,6 @@ sealed class NetworkResponse <out T : Any, out U : Any>{
      * For example, json parsing error
      */
     data class UnknownError(val error: Throwable?) : NetworkResponse<Nothing, Nothing>()
+
+    class Loading<T : Any> : NetworkResponse<T, Nothing>()
 }

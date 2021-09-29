@@ -20,9 +20,6 @@ private const val ARG_PARAM2 = "param2"
  */
 class FavFragment private constructor(): BaseFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +30,7 @@ class FavFragment private constructor(): BaseFragment() {
     }
 
     override fun initialiseWidgets() {
-
+        
     }
 
     companion object {

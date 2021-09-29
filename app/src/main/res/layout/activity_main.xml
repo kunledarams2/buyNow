@@ -13,10 +13,15 @@
         android:theme="@style/Theme.BuyNow.AppBarOverlay">
 
         <include
-            android:visibility="gone"
             android:id="@+id/appbar_home"
             layout="@layout/home_app_bar" />
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_full_img"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <include android:id="@+id/main_content"
         layout="@layout/content_home"/>

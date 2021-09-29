@@ -7,4 +7,6 @@ object URLS {
     const val login = "auth"
 //    const val updateUser = ""
     const val DEALS = "deals"
+    const val CATEGORIES = "categories"
+    const val PRODUCT = "products"
 }

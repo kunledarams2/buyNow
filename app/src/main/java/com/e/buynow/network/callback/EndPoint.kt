@@ -1,8 +1,12 @@
 package com.e.buynow.network.callback
 
 import com.android_dr_app.network.NetworkResponse
+import com.e.buynow.model.Categories
+import com.e.buynow.model.Deals
+import com.e.buynow.model.Product
 import com.e.buynow.model.User
 import com.e.buynow.network.api.URLS
+import kotlinx.coroutines.flow.Flow
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -29,5 +33,13 @@ interface EndPoint {
     ): NetworkResponse<User, User>
 
     @GET(URLS.DEALS)
-    suspend fun findDeals(@Header("Authorization") api:String)
+    suspend fun fetchDeals(@Header("Authorization") api:String):NetworkResponse<List<Deals>, Error>
+
+    @GET(URLS.CATEGORIES)
+    suspend fun fetchCategories(@Header("Authorization") api:String):
+            NetworkResponse<List<Categories>, Error>
+
+    @GET("${URLS.PRODUCT}/{id}")
+    suspend fun fetchProductById(@Header("Authorization") api:String,
+                                 @Path("id") id:String):NetworkResponse<Product,Error>
 }

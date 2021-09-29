@@ -1,25 +1,14 @@
 package com.e.buynow.repository
 
 import android.util.Log
+import com.e.buynow.network.NetworkInteraction
+import dagger.hilt.android.scopes.ActivityRetainedScoped
 import kotlinx.coroutines.CoroutineScope
+import javax.inject.Inject
 
-class ProductRepository(override val scope: CoroutineScope): LoginRepository(scope){
 
-    companion object {
-        // Singleton instantiation you already know and love
-        @Volatile private var instance: ProductRepository? = null
-        private const val TAG = "Repository"
-        private const val NO_AUTH = "No Auth"
-        const val KEY_PREF = "key"
+open class ProductRepository @Inject constructor(override val remote:
+                                                 NetworkInteraction):Repository(remote){
 
-        fun getInstance(scope: CoroutineScope):ProductRepository {
-            val temp = instance
-            if (temp!=null)return temp
-            synchronized(this) {
-                instance = ProductRepository(scope)
-                Log.d(TAG, "getInstance: $instance")
-                return instance!!
-            }
-        }
-    }
+
 }
