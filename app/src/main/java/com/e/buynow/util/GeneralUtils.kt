@@ -184,7 +184,7 @@ object GeneralUtils {
         )
 
         alertDialog.setCancelable(true)
-            .setIcon(R.mipmap.ic_launcher).setMessage(message)
+            .setIcon(R.drawable.logo).setMessage(message)
             .setTitle(title).setNeutralButton("Ok"
                 ) { dialog, i -> dialog.dismiss() }
         getHandler()?.post {

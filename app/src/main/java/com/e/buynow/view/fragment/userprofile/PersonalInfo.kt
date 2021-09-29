@@ -60,14 +60,14 @@ class PersonalInfo : Fragment() {
     }
 
     private fun setContentView(view: View){
-        view.back_btn.setOnClickListener { findNavController().navigate(R.id.action_personalInfo_to_profileHomePage) }
+//        view.back_btn.setOnClickListener { findNavController().navigate(R.id.action_personalInfo_to_profileHomePage) }
 
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewLifecycleOwner.lifecycleScope.launch {
-            GeneralUtils.getUserDetails(context!!).collect {
+            GeneralUtils.getUserDetails(requireContext()).collect {
                 binding.firstName.setText(it.firstName)
                 binding.lastName.setText(it.lastName)
                 binding.email.setText(it.email)

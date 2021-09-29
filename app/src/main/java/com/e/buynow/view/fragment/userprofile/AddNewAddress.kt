@@ -20,7 +20,7 @@ class AddNewAddress : BaseFragment() {
     private val binding get() = _binding!!
     override fun initialiseWidgets() {
         TODO("Not yet implemented")
-        listener.i
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

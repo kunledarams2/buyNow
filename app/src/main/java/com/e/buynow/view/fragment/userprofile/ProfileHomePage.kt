@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.e.buynow.R
 import com.e.buynow.view.fragment.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_profile_home_page.view.*
 
-
+@AndroidEntryPoint
 class ProfileHomePage : BaseFragment(), View.OnClickListener {
     override fun initialiseWidgets() {
 

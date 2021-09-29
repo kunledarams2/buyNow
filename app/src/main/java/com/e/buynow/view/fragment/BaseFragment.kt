@@ -9,7 +9,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.e.buynow.util.GeneralUtils
 import com.e.buynow.view.activity.interfaces.FragmentListener
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 abstract class BaseFragment: Fragment() {
 
     private val TAG = "BaseFragment"
@@ -34,8 +36,7 @@ abstract class BaseFragment: Fragment() {
         activity?.let { GeneralUtils.message(it, msg) }
     }
 
-    protected fun findNavHostFragmentFromId(resId:Int){
-        navHostFrag= childFragmentManager.findFragmentById(resId) as NavHostFragment
+    protected fun findNavHostFragmentFromId(resId:Int){ // 3064816664        navHostFrag= childFragmentManager.findFragmentById(resId) as NavHostFragment
         navController = navHostFrag.navController
     }
 }

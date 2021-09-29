@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.android_dr_app.network.NetworkResponse
 //import com.e.buynow.MainActivity
 import com.e.buynow.R
+import com.e.buynow.databinding.FragmentPersonalInfoBinding
+import com.e.buynow.databinding.FragmentSignInBinding
 import com.e.buynow.databinding.FragmentSignUpBinding
 import com.e.buynow.network.callback.EndPoint
 
@@ -34,11 +36,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class SignIn : FragmentTitle(), View.OnClickListener {
 
-    lateinit var createAccount:TextView
-    lateinit var forgotPassword:TextView
-    lateinit var fragmentChanger: FragmentChanger
-
-    private var _binding: FragmentSignUpBinding? = null
+    private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
 
     @Inject
@@ -48,7 +46,6 @@ class SignIn : FragmentTitle(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-//            fragmentChanger = activity as AuthnActivity
 
         }
     }
@@ -58,25 +55,24 @@ class SignIn : FragmentTitle(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-         val view = inflater.inflate(R.layout.fragment_sign_in, container, false)
+        _binding = FragmentSignInBinding.inflate(inflater,container,false)
+        val view = binding.root
+       /*  val view = inflater.inflate(R.layout.fragment_sign_in, container, false)*/
         setContentView(view)
         return view
     }
 
     private fun setContentView(view: View){
-        createAccount = view.findViewById(R.id.create_account)
-        createAccount.setOnClickListener(this)
-
-        forgotPassword = view.findViewById(R.id.forgot_password)
-        forgotPassword.setOnClickListener(this)
+        binding.createAccount.setOnClickListener(this)
+       binding.forgotPassword.setOnClickListener(this)
 
         view.login_btn.setOnClickListener { loginUser() }
 
     }
 
     private fun loginUser(){
-        val email = requireView().email.text.toString().trim()
-        val password = requireView().password.text.toString().trim()
+        val email = binding.editEmail.text.toString().trim()
+        val password = binding.editPassword.text.toString().trim()
 
         when{
             email.isEmpty()->ToastUtil.showLong(context, "Email is required...")
@@ -91,7 +87,7 @@ class SignIn : FragmentTitle(), View.OnClickListener {
                     withContext(Dispatchers.Main){
                         when (response){
                             is NetworkResponse.Success->{
-                                GeneralUtils.setUserDetails(context!!, response.body.data)
+                                GeneralUtils.setUserDetails(requireContext(), response.body.data)
                                 ToastUtil.log("SignIn", "-_-_-_-${response.body}")
                                 startActivity(Intent(context, MainActivity::class.java))
                             }

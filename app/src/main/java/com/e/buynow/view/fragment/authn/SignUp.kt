@@ -2,6 +2,7 @@ package com.e.buynow.view.fragment.authn
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -71,9 +72,9 @@ class SignUp : FragmentTitle() {
 
         when {
             !Patterns.EMAIL_ADDRESS.matcher(eEmail).matches() || eEmail.isEmpty() -> ToastUtil.showLong(context, "Invalid Email")
-            eFirstName.isEmpty() -> ToastUtil.showLong(context, "First name is required....")
-            eLastName.isEmpty() -> ToastUtil.showLong(context, "Last name is required....")
-            ePassword.isEmpty() -> ToastUtil.showLong(context, "Password is required....")
+            eFirstName.isEmpty() -> ToastUtil.showLong(context, "First name is required...")
+            eLastName.isEmpty() -> ToastUtil.showLong(context, "Last name is required...")
+            ePassword.isEmpty() -> ToastUtil.showLong(context, "Password is required...")
             eUsername.isEmpty()-> ToastUtil.showLong(context, "Username is required...")
             else -> {
                 val params=HashMap<String, Any>()
@@ -83,7 +84,7 @@ class SignUp : FragmentTitle() {
                 params["email"] = eEmail
                 params["username"] = eUsername
 
-
+                Log.d("SignUp", params.toString())
                 CoroutineScope(Dispatchers.IO).launch {
                     val response  = endPoint.createUser(params)
                     withContext(Dispatchers.Main){
@@ -95,7 +96,7 @@ class SignUp : FragmentTitle() {
                             }
                             is NetworkResponse.NetworkError-> ToastUtil.showLong(context, "${response.error}")
                             is NetworkResponse.ApiError -> ToastUtil.log("SignUp", response.code.toString())
-                            is NetworkResponse.UnknownError-> GeneralUtils.showAlertMessage(requireActivity(), "Error", response.error!!.message)
+                            is NetworkResponse.UnknownError-> GeneralUtils.showAlertMessage(requireActivity(), "Error", "Unknown error....")
                         }
 
                     }
