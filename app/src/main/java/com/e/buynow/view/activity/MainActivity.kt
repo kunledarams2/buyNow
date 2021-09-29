@@ -7,12 +7,15 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.e.buynow.R
 import com.e.buynow.databinding.ActivityMainBinding
 import com.e.buynow.util.AppConstants
 import com.e.buynow.util.GeneralUtils
 import com.e.buynow.view.activity.interfaces.FragmentListener
+import com.e.buynow.view.activity.interfaces.FullImageListener
 import com.e.buynow.view.fragment.BaseFragment
 import com.e.buynow.view.fragment.navigation.*
 import com.e.buynow.view.fragment.userprofile.ProfileHomePage
@@ -22,7 +25,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), FragmentListener {
+class MainActivity : AppCompatActivity(), FragmentListener, FullImageListener {
 
     private val TAG = "MainActivity"
     private lateinit var binding: ActivityMainBinding
@@ -34,6 +37,7 @@ class MainActivity : AppCompatActivity(), FragmentListener {
     private var profile: UserProfileFragment?=null
     private var notify:NotificationFragment?=null
     private lateinit var toolbar: Toolbar
+    private var fullImageFlag = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,15 +94,32 @@ class MainActivity : AppCompatActivity(), FragmentListener {
         ab.setDisplayShowTitleEnabled(false) // disable the default title element here (for centered title)
     }
 
+    override fun showFullImages(img: Array<String>) {
+        fullImageFlag = true
+        setupOtherActionBar()
+        with(binding){
+            listFullImg.visibility = View.VISIBLE
+
+        }
+    }
+
     private fun initialiseWidget() {
-        adapter = FragmentHomeAdapter(this@MainActivity,
-            supportFragmentManager, listFragments )
-        with(binding.mainContent){
-            bottomNavigationMain.setOnItemSelectedListener(navListener)
-            pager.adapter = adapter
-            pager.addOnPageChangeListener(pageChangeListener)
-            binding.appbarHome.imgNotification.setOnClickListener {
-                pager.currentItem = 4
+        with(binding) {
+            adapter = FragmentHomeAdapter(
+                this@MainActivity,
+                supportFragmentManager, listFragments
+            )
+
+            listFullImg.layoutManager = LinearLayoutManager(this@MainActivity,
+                RecyclerView.VERTICAL, false)
+
+            with(mainContent) {
+                bottomNavigationMain.setOnItemSelectedListener(navListener)
+                pager.adapter = adapter
+                pager.addOnPageChangeListener(pageChangeListener)
+                appbarHome.imgNotification.setOnClickListener {
+                    pager.currentItem = 4
+                }
             }
         }
     }
@@ -188,6 +209,8 @@ class MainActivity : AppCompatActivity(), FragmentListener {
 
 
     override fun onBackPressed() {
-
+        with(binding) {
+            if (fullImageFlag) listFullImg.visibility = View.GONE
+        }
     }
 }
