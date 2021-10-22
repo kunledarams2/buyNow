@@ -6,9 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.e.buynow.R
+import com.e.buynow.view.fragment.BaseFragment
 
 
-class ResetPassword : Fragment() {
+class ResetPassword : BaseFragment() {
+    override fun initialiseWidgets() {
+
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

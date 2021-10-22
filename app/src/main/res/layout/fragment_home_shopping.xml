@@ -7,17 +7,26 @@
     android:background="@color/white"
     tools:context=".view.fragment.home.HomeShoppingFragment">
 
+    <include
+        android:id="@+id/include2"
+        layout="@layout/home_app_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintTop_toBottomOf="@+id/include2"
+        tools:layout_editor_absoluteX="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.constraintlayout.widget.Guideline
+            <!-- <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,22 +108,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.6749"/>
+                app:layout_constraintGuide_percent="0.6749"/>-->
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
+
                 android:weightSum="10"
-                app:layout_constraintStart_toEndOf="@id/guideline_start"
-                app:layout_constraintEnd_toStartOf="@id/guideline_end"
-                app:layout_constraintTop_toBottomOf="@id/guideline_top"
-                app:layout_constraintBottom_toTopOf="@id/guideline_search_bottom">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <EditText
                     android:id="@+id/edit_filter"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="8.095"
                     android:background="@drawable/edit_box"
                     android:drawableStart="@drawable/ic_search_24"
@@ -122,6 +135,7 @@
                     android:fontFamily="@font/mulish_regular"
                     android:hint="@string/search"
                     android:lineSpacingExtra="3.06sp"
+                    android:padding="15dp"
                     android:paddingStart="20dp"
                     android:paddingEnd="5dp"
                     android:textSize="12sp" />
@@ -129,117 +143,145 @@
                 <View
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.3175"/>
+                    android:layout_weight="0.3175" />
 
                 <ImageButton
                     android:id="@+id/btn_filter"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1.587"
-                    android:src="@drawable/filter"
-                    android:background="@drawable/blue_box_small"/>
+                    android:background="@drawable/blue_box_small"
+                    android:padding="15dp"
+                    android:src="@drawable/filter" />
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
+            <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/list_deals"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                tools:listitem="@layout/home_item_slide"
-                app:layout_constraintStart_toEndOf="@id/guideline_start"
-                app:layout_constraintEnd_toStartOf="@id/guideline_end"
-                app:layout_constraintTop_toBottomOf="@id/guideline_deals_top"
-                app:layout_constraintBottom_toTopOf="@id/guideline_deals_bottom"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="16dp"
+
+                android:layout_marginTop="20dp"
+
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
             <me.relex.circleindicator.CircleIndicator3
                 android:id="@+id/circlePageIndicator"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:padding="5dp"
                 app:ci_drawable="@drawable/selected_indicator"
                 app:ci_drawable_unselected="@drawable/un_selected_indicator"
                 app:ci_orientation="horizontal"
-                app:layout_constraintEnd_toStartOf="@id/guideline_end"
-                app:layout_constraintStart_toEndOf="@id/guideline_start"
-                app:layout_constraintTop_toBottomOf="@id/guideline_deals_slide" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/list_deals" />
+
             <TextView
                 android:id="@+id/text_popular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/circlePageIndicator"
-                app:layout_constraintStart_toEndOf="@id/guideline_start"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/mulish_regular"
-                android:textSize="18sp"
                 android:lineSpacingExtra="2.59dp"
                 android:text="@string/popular"
-                android:textColor="@color/colorText_black"/>
+                android:textColor="@color/colorText_black"
+
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/circlePageIndicator" />
 
             <TextView
                 android:id="@+id/txt_show_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@id/text_popular"
-                app:layout_constraintBottom_toBottomOf="@id/text_popular"
-                app:layout_constraintVertical_bias="0.8"
-                app:layout_constraintEnd_toStartOf="@id/guideline_end"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/mulish_regular"
+                android:lineSpacingExtra="3.06dp"
                 android:text="@string/show_all"
                 android:textColor="@color/colorText_blue"
-                android:fontFamily="@font/mulish_regular"
                 android:textSize="12sp"
-                android:lineSpacingExtra="3.06dp"/>
+                app:layout_constraintBottom_toBottomOf="@id/text_popular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/text_popular"
+                app:layout_constraintVertical_bias="1.0" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                tools:listitem="@layout/item_popular"
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
-                app:layout_constraintStart_toEndOf="@id/guideline_start"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/guideline_popular_top"
-                app:layout_constraintBottom_toTopOf="@id/guideline_popular_bottom"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_popular"
+
+                tools:listitem="@layout/item_popular" />
 
             <TextView
                 android:id="@+id/text_feature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/guideline_feature_top"
-                app:layout_constraintStart_toEndOf="@id/guideline_start"
+
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/mulish_regular"
-                android:textSize="18sp"
                 android:lineSpacingExtra="2.59dp"
                 android:text="@string/featured"
-                android:textColor="@color/colorText_black"/>
+
+                android:textColor="@color/colorText_black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
             <TextView
                 android:id="@+id/txt_categories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@id/text_feature"
-                app:layout_constraintBottom_toBottomOf="@id/text_feature"
-                app:layout_constraintVertical_bias="0.8"
-                app:layout_constraintEnd_toStartOf="@id/guideline_end"
-                android:text="Categories"
-                android:textColor="@color/colorText_blue"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/mulish_regular"
+                android:lineSpacingExtra="3.06dp"
+
+                android:text="Show all"
+                android:textColor="@color/colorText_blue"
                 android:textSize="12sp"
-                android:lineSpacingExtra="3.06dp"/>
-            
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/text_feature"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/text_feature"
+                app:layout_constraintVertical_bias="0.8" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/list_fcategories"
                 android:layout_width="0dp"
-                android:layout_height="226dp"
-                tools:listitem="@layout/item_featured"
-                app:layout_constraintStart_toEndOf="@id/guideline_start"
-                app:layout_constraintEnd_toStartOf="@id/guideline_end"
-                app:layout_constraintTop_toBottomOf="@id/guideline_feature_list_top"/>
+                android:layout_height="230dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_feature"
+                app:spanCount="3"
+
+                tools:listitem="@layout/item_featured" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                app:layout_constraintStart_toStartOf="parent"
+
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/list_fcategories"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/list_fcategories" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,14 +9,18 @@ import androidx.navigation.fragment.findNavController
 import com.e.buynow.R
 import com.e.buynow.databinding.FragmentMOrdersBinding
 import com.e.buynow.databinding.FragmentPersonalInfoBinding
+import com.e.buynow.view.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_m_orders.*
 import kotlinx.android.synthetic.main.fragment_m_orders.view.*
 
 
-class MOrders : Fragment() {
+class MOrders : BaseFragment() {
 
     private var _binding: FragmentMOrdersBinding? = null
     private val binding get() = _binding!!
+    override fun initialiseWidgets() {
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +42,7 @@ class MOrders : Fragment() {
     }
 
     private fun setContentView(view: View) {
+        listener!!.hideBNV()
      view.back_btn.setOnClickListener { findNavController().navigate(R.id.action_MOrders_to_profileHomePage) }
 
     }

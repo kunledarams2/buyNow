@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_profile_home_page.view.*
 @AndroidEntryPoint
 class ProfileHomePage : BaseFragment(), View.OnClickListener {
     override fun initialiseWidgets() {
-
+        listener!!.showBNV()
     }
 
 

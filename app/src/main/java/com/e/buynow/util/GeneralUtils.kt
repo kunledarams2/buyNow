@@ -29,6 +29,7 @@ import com.skydoves.balloon.BalloonAnimation
 import com.skydoves.balloon.createBalloon
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 
 object GeneralUtils {
@@ -79,10 +80,10 @@ object GeneralUtils {
         }
     }
 
-    @JvmStatic
     fun getUserToken( context: Context):Flow<String> {
         return context.dataStore.data.map { 
             "Bearer ${it[TOKEN].toString()}"
+
         }
     }
 

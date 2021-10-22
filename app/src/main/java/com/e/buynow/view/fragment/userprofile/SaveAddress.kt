@@ -8,12 +8,16 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.e.buynow.R
 import com.e.buynow.databinding.FragmentSaveAddressBinding
+import com.e.buynow.view.fragment.BaseFragment
 
 
-class SaveAddress : Fragment() {
+class SaveAddress : BaseFragment() {
 
     private var _binding: FragmentSaveAddressBinding? = null
     private val binding get() = _binding!!
+    override fun initialiseWidgets() {
+    listener!!.hideBNV()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +39,7 @@ class SaveAddress : Fragment() {
     }
 
     private fun setContentView(view: View){
+
         binding.backBtn.setOnClickListener { findNavController().navigate(R.id.action_saveAddress_to_profileHomePage) }
         binding.addNewAddress.setOnClickListener { findNavController().navigate(R.id.action_saveAddress_to_addNewAddress) }
     }

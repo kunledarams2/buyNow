@@ -1,60 +1,91 @@
 package com.e.buynow.view.fragment.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.e.buynow.R
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.e.buynow.databinding.FragmentCategoriesBinding
+import com.e.buynow.model.CategoriesData
+import com.e.buynow.util.GeneralUtils
+import com.e.buynow.view.adapter.CategoriesAdapter
+import com.e.buynow.view.fragment.BaseFragment
+import com.e.buynow.view_model.CategoriesViewModel
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CategoriesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class CategoriesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class CategoriesFragment : BaseFragment() {
+
+    lateinit var binding: FragmentCategoriesBinding
+    lateinit var categoriesData: CategoriesData
+    lateinit var categoriesAdapter: CategoriesAdapter
+    private lateinit var categoriesViewModel: CategoriesViewModel
+
+    override fun initialiseWidgets() {
+        listener!!.showBNV()
+
+        /* categoriesData = requireArguments().getParcelable("CategoriesData")!!
+         Log.d("mCategoriesData", categoriesData.toString())*/
+
+        categoriesAdapter = CategoriesAdapter()
+        /*  categoriesAdapter.setData(categoriesData)*/
+        with(binding.catRecyclerView) {
+            adapter = categoriesAdapter
+            layoutManager = LinearLayoutManager(context)
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_categories, container, false)
+        binding = FragmentCategoriesBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        categoriesViewModel = ViewModelProvider(this)[CategoriesViewModel::class.java]
+        viewLifecycleOwner.lifecycleScope.launch {
+            GeneralUtils.getUserToken(requireContext()).collect { token ->
+                if (token.isNotEmpty()) {
+                    categoriesViewModel.fetchCategories(token)
+
+                }
+            }
+        }
+        catObserver(categoriesViewModel!!)
+    }
+
+    private fun catObserver(categoriesViewModel: CategoriesViewModel){
+        categoriesViewModel.getMediatorLiveData().observe(viewLifecycleOwner, {result->
+            if (result.isSuccessful() && !result.getDataList().isNullOrEmpty()){
+                categoriesAdapter.setData(result.getDataList() as ArrayList<CategoriesData>, "Category")
+            }
+        })
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CategoriesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
+
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CategoriesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        fun newInstance() =
+                CategoriesFragment().apply {
+                    arguments = Bundle().apply {
+
+                    }
                 }
-            }
     }
 }

@@ -15,21 +15,53 @@
         <action
             android:id="@+id/action_homeShoppingFragment2_to_dealsFragment2"
             app:destination="@id/dealsFragment2" />
+        <action
+            android:id="@+id/action_homeShoppingFragment2_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemDetailFragment2"
-        android:name="com.e.buynow.view.fragment.ItemDetailFragment"
+        android:name="com.e.buynow.view.fragment.products.ItemDetailFragment"
         android:label="fragment_item_detail"
         tools:layout="@layout/fragment_item_detail" >
         <argument
             android:name="id"
             app:argType="integer"
             android:defaultValue="0" />
+        <action
+            android:id="@+id/action_itemDetailFragment2_to_homeShoppingFragment2"
+            app:destination="@id/homeShoppingFragment2" />
+        <action
+            android:id="@+id/action_itemDetailFragment2_to_productImageView"
+            app:destination="@id/productImageView" />
     </fragment>
     <fragment
         android:id="@+id/dealsFragment2"
         android:name="com.e.buynow.view.fragment.home.DealsFragment"
         android:label="fragment_deals"
         tools:layout="@layout/fragment_deals_categories" />
+    <fragment
+        android:id="@+id/itemDetailsFragment"
+        android:name="com.e.buynow.view.fragment.home.ItemDetailsFragment"
+        android:label="fragment_item_details"
+        tools:layout="@layout/fragment_item_details" />
+    <fragment
+        android:id="@+id/productImageView"
+        android:name="com.e.buynow.view.fragment.products.ProductImageView"
+        android:label="fragment_product_image_view"
+        tools:layout="@layout/fragment_product_image_view" >
+        <action
+            android:id="@+id/action_productImageView_to_itemDetailFragment2"
+            app:destination="@id/itemDetailFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.e.buynow.view.fragment.home.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_homeShoppingFragment2"
+            app:destination="@id/homeShoppingFragment2" />
+    </fragment>
 
 </navigation>

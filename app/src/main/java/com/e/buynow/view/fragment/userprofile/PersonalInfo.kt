@@ -14,6 +14,7 @@ import com.e.buynow.databinding.FragmentPersonalInfoBinding
 import com.e.buynow.network.callback.EndPoint
 import com.e.buynow.util.GeneralUtils
 import com.e.buynow.view.activity.MainActivity
+import com.e.buynow.view.fragment.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_personal_info.view.*
 import kotlinx.coroutines.CoroutineScope
@@ -24,7 +25,7 @@ import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class PersonalInfo : Fragment() {
+class PersonalInfo : BaseFragment() {
 
     private var _binding:FragmentPersonalInfoBinding? = null
     private val binding get() = _binding!!
@@ -37,8 +38,12 @@ class PersonalInfo : Fragment() {
 
     }
 
+    override fun initialiseWidgets() {
 
-//    lateinit var binding: FragmentPersonalInfoBinding
+    }
+
+
+    //    lateinit var binding: FragmentPersonalInfoBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -60,7 +65,9 @@ class PersonalInfo : Fragment() {
     }
 
     private fun setContentView(view: View){
-//        view.back_btn.setOnClickListener { findNavController().navigate(R.id.action_personalInfo_to_profileHomePage) }
+        listener!!.hideBNV()
+        binding.navBack.setOnClickListener { findNavController().navigate(R.id.action_personalInfo_to_profileHomePage) }
+
 
     }
 

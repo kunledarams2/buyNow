@@ -128,10 +128,16 @@ class MainActivity : AppCompatActivity(), FragmentListener, FullImageListener {
         removeBottomNav()
     }
 
+    override fun showBNV() {
+        binding.mainContent.bottomNavigationMain.visibility = View.VISIBLE
+    }
+
     private fun removeBottomNav() {
         Log.d(TAG, "Inside......................")
         binding.mainContent.bottomNavigationMain.visibility = View.GONE
     }
+
+
 
     private val navListener =
         NavigationBarView.OnItemSelectedListener { menuItem ->

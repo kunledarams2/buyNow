@@ -35,11 +35,20 @@ interface EndPoint {
     @GET(URLS.DEALS)
     suspend fun fetchDeals(@Header("Authorization") api:String):NetworkResponse<List<Deals>, Error>
 
+    @Headers("Accept:application/json", "Content-Type:application/x-www-form-urlencoded")
     @GET(URLS.CATEGORIES)
     suspend fun fetchCategories(@Header("Authorization") api:String):
-            NetworkResponse<List<Categories>, Error>
+            NetworkResponse<Categories, Categories>
 
     @GET("${URLS.PRODUCT}/{id}")
     suspend fun fetchProductById(@Header("Authorization") api:String,
                                  @Path("id") id:String):NetworkResponse<Product,Error>
+
+
+    @Headers("Accept:application/json", "Content-Type:application/x-www-form-urlencoded")
+    @GET(URLS.PRODUCT)
+    suspend fun fetchProduct(
+        @Header("Authorization") token:String,
+        @QueryMap hashMap: HashMap<String, Any>,
+    ):NetworkResponse<Product,Product>
 }

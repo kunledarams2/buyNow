@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:layout_marginBottom="1dp">
 
-    <androidx.constraintlayout.widget.Guideline
+<!--    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_img_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,27 +33,54 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8143"/>
+        app:layout_constraintGuide_percent="0.8143"/>-->
 
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+    <View
+        android:id="@+id/view2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/ic_category"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline_img_end"
-        app:layout_constraintTop_toBottomOf="@id/guideline_top"
-        app:layout_constraintBottom_toTopOf="@id/guideline_bottom"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/img_item"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/txt_category_name"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorText_black"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/mulish_light"
-        android:text="Chair"
-        android:textSize="18sp"
         android:lineSpacingExtra="4.59dp"
-        app:layout_constraintStart_toEndOf="@id/guideline_text_start"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:text="Chair"
+        android:textColor="@color/colorText_black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="2dp"
+        android:background="#DEDEDE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
