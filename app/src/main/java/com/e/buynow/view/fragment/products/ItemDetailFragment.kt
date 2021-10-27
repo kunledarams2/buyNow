@@ -85,7 +85,12 @@ class ItemDetailFragment : BaseFragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         cartViewModel = ViewModelProvider(this)[CartViewModel::class.java]
+
     }
 
     companion object {
@@ -104,9 +109,9 @@ class ItemDetailFragment : BaseFragment() {
         val cart = Cart(null,
                 productData!!.name,
                 productData!!.price.toInt(),
-                productData!!._id.toInt(),
+                productData!!._id,
                 1,
-                productData!!.images[1])
+                productData!!.images[0])
 
        viewLifecycleOwner.lifecycleScope.launch {
            cartViewModel!!.insertItem(cart)

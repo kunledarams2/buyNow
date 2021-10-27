@@ -17,7 +17,7 @@ data class Cart(
         @ColumnInfo(name = "itemPrice")
         val itemPrice: Int,
         @ColumnInfo(name = "itemId")
-        val itemId: Int,
+        val itemId: String,
         @ColumnInfo(name = "quantity")
         var quantity: Int,
         @ColumnInfo(name = "itemImagePath")
