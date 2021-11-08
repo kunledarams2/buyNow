@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".view.fragment.rider.RiderHomeFragment">
+
+    <ImageView
+        android:id="@+id/profile_img"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/blue_box"
+        android:scaleType="fitXY"
+        android:src="@drawable/dashboard_img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/mulish_regular"
+        android:text="@string/hello"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/profile_name"
+        app:layout_constraintStart_toEndOf="@id/profile_img"
+        app:layout_constraintTop_toTopOf="@id/profile_img" />
+
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mulish_bold"
+        android:text="Valentino"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/hello"
+        app:layout_constraintStart_toStartOf="@id/hello"
+        app:layout_constraintTop_toBottomOf="@id/hello" />
+
+    <ImageView
+        android:id="@+id/notification_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_notification_bell"
+        app:layout_constraintEnd_toStartOf="@id/round_green"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/round_green"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_round_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bg_blue_box"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/blue_box"
+        app:layout_constraintTop_toBottomOf="@id/profile_img">
+
+        <ImageView
+            android:id="@+id/bg_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/blue_box"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_rider_bg_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rides_today_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/mulish_regular"
+            android:text="@string/rides_today"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/no_of_rides_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mulish_bold"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/rides_today_txt"
+            app:layout_constraintTop_toBottomOf="@id/rides_today_txt" />
+
+        <TextView
+            android:id="@+id/rider_rating_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/rider_rating"
+            android:textColor="@color/white"
+            android:fontFamily="@font/mulish_regular"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/rides_today_txt"
+            app:layout_constraintTop_toBottomOf="@id/no_of_rides_today" />
+
+        <TextView
+            android:id="@+id/rider_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:fontFamily="@font/mulish_bold"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/rider_rating_txt"
+            app:layout_constraintTop_toBottomOf="@id/rider_rating_txt" />
+
+        <ImageView
+            android:id="@+id/rider_rating_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/rider_rating"
+            app:layout_constraintTop_toTopOf="@id/rider_rating"
+            app:layout_constraintBottom_toBottomOf="@id/rider_rating"
+            android:src="@drawable/ic_star_gold"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"/>
+
+
+        <TextView
+            android:id="@+id/distance_covered_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/rider_rating"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rides_today_txt"
+            android:fontFamily="@font/mulish_regular"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/distance_covered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="0km"
+            android:fontFamily="@font/mulish_bold"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/distance_covered_txt"
+            app:layout_constraintTop_toBottomOf="@id/distance_covered_txt" />
+
+        <TextView
+            android:id="@+id/driver_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="DriverId:12345"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="10sp"
+            android:fontFamily="@font/mulish_regular"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/rides_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/rides"
+        android:textSize="18sp"
+        android:fontFamily="@font/mulish_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bg_blue_box" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/show_all"
+        app:layout_constraintBottom_toBottomOf="@id/rides_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/colorBlue"
+        android:fontFamily="@font/mulish_regular"
+        android:textSize="12sp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rides_txt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/drawable-v24/blue_box.xml" value="0.15185185185185185" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/drawable/blue_box_2.xml" value="0.15185185185185185" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/drawable/blue_circle.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/drawable/bottom_nav_rider_icon_color.xml" value="0.2037037037037037" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/drawable/btn_blue.xml" value="0.15185185185185185" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/drawable/grey_box.xml" value="0.15185185185185185" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/drawable/grey_btn.xml" value="0.15185185185185185" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/drawable/ic_home_icon_grey.xml" value="0.2037037037037037" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/drawable/radio_bg.xml" value="0.2037037037037037" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout-v28/bottom_dialog_cont_shopping.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/activity_authn.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/activity_rider_authn.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_home.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_login_success.xml" value="0.18" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_rider_home.xml" value="0.3493975903614458" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_rider_main_fragment.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_rider_notification.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_rider_onboarding.xml" value="0.18" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_rider_onboarding2.xml" value="0.25" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_rider_profile.xml" value="0.18" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_rider_sign_in.xml" value="0.18" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_sign_in.xml" value="0.1" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/item_rides_day_rider.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/item_rides_rider.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/notification_item.xml" value="0.22" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/rider_ride_item.xml" value="0.3967861557478368" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/menu/home_navigation_menu.xml" value="0.16111111111111112" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/menu/rider_nav_menu.xml" value="0.209375" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -3,7 +3,7 @@
     package="com.e.buynow">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".BuyNowApplication"
@@ -12,9 +12,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.BuyNow">
-        <activity android:name=".view.activity.ExitActivity"></activity>
+        android:theme="@style/Theme.BuyNow"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".view.activity.RiderAuthnActivity"
+            android:exported="false" />
+        <activity android:name=".view.activity.ExitActivity" />
         <activity
             android:name=".view.activity.AuthnActivity"
             android:label="@string/title_activity_authn"
@@ -23,8 +26,8 @@
         <activity android:name=".view.activity.MainActivity" />
         <activity
             android:name=".view.activity.SplashActivity"
-            android:theme="@style/SplashTheme"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +35,5 @@
             </intent-filter>
         </activity>
     </application>
-
-
 
 </manifest>

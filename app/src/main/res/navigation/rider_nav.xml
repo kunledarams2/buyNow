@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rider_nav"
+    app:startDestination="@id/riderHomeFragment">
+
+    <fragment
+        android:id="@+id/riderHomeFragment"
+        android:name="com.e.buynow.view.fragment.rider.RiderHomeFragment"
+        android:label="fragment_rider_home"
+        tools:layout="@layout/fragment_rider_dashboard" >
+        <action
+            android:id="@+id/action_riderHomeFragment_to_riderNotificationFragment"
+            app:destination="@id/riderNotificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/riderProfileFragment"
+        android:name="com.e.buynow.view.fragment.rider.RiderProfileFragment"
+        android:label="fragment_rider_profile"
+        tools:layout="@layout/fragment_rider_profile" />
+    <fragment
+        android:id="@+id/riderMapFragment"
+        android:name="com.e.buynow.view.fragment.rider.RiderMapFragment"
+        android:label="fragment_rider_map"
+        tools:layout="@layout/fragment_rider_map" />
+    <fragment
+        android:id="@+id/riderNotificationFragment"
+        android:name="com.e.buynow.RiderNotificationFragment"
+        android:label="fragment_rider_notification"
+        tools:layout="@layout/fragment_rider_notification" >
+        <action
+            android:id="@+id/action_riderNotificationFragment_to_riderProfileFragment"
+            app:destination="@id/riderProfileFragment" />
+    </fragment>
+</navigation>

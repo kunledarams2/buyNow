@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.rider.authn.RiderSignInFragment">
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_baseline_keyboard_backspace_24"
+        android:id="@+id/back_arrow"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:id="@+id/loginText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/mulish_extrabold"
+        android:text="@string/login"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/enterDetailsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fill_your_details"
+        android:textSize="18sp"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/mulish_regular"
+        app:layout_constraintTop_toBottomOf="@id/loginText" />
+
+    <TextView
+        android:id="@+id/idTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/driver_id"
+        android:fontFamily="@font/mulish_extrabold"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/loginText"
+        app:layout_constraintTop_toBottomOf="@id/enterDetailsTxt" />
+
+    <EditText
+        android:id="@+id/driverId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:height="50dp"
+        android:background="@drawable/edit_box"
+        android:hint="@string/enter_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idTxt"
+        android:padding="4dp"/>
+
+    <TextView
+        android:id="@+id/passwordTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/password"
+        android:fontFamily="@font/mulish_extrabold"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/loginText"
+        app:layout_constraintTop_toBottomOf="@id/driverId" />
+
+    <EditText
+        android:id="@+id/driverPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:height="40dp"
+        android:background="@drawable/edit_box"
+        android:hint="@string/enter_password_here"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordTxt"
+        android:padding="4dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/btn_blue"
+        android:text="@string/log_in"
+        android:textSize="20sp"
+        android:fontFamily="@font/mulish_regular"
+        app:backgroundTint="@color/colorBlue"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

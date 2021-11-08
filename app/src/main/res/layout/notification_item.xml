@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/notification_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/blue_circle"
+        android:backgroundTint="#332244AE" />
+
+    <TextView
+        android:id="@+id/notification_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/notification_icon"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/mulish_extrabold"
+        android:textSize="12sp"
+        android:text="Confirm Location"/>
+
+    <TextView
+        android:id="@+id/notification_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mulish_regular"
+        app:layout_constraintStart_toStartOf="@id/notification_title"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/notification_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Please Confirm your exact location before we send your package"/>
+
+    <TextView
+        android:id="@+id/notification_date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mulish_regular"
+        app:layout_constraintStart_toStartOf="@id/notification_title"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/notification_text"
+        android:text="May 20 2021 I 3:33pm"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
