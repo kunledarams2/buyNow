@@ -13,4 +13,6 @@ object URLS {
     const val DEALS = "deals"
     const val CATEGORIES = "categories"
     const val PRODUCT = "products"
+
+    const val createRiderAccount = "riders"
 }

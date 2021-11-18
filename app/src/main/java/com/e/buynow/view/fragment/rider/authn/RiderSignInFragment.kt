@@ -5,55 +5,45 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.e.buynow.R
+import com.e.buynow.databinding.FragmentRiderSignInBinding
+import com.e.buynow.network.callback.EndPoint
+import javax.inject.Inject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RiderSignInFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class RiderSignInFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+class RiderSignInFragment : Fragment(){
+    private val binding : FragmentRiderSignInBinding by lazy {
+        FragmentRiderSignInBinding.inflate(layoutInflater)
     }
+
+    @Inject
+    lateinit var endPoint: EndPoint
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rider_sign_in, container, false)
+
+        setContentView()
+        return binding.root
+    }
+
+    private fun setContentView(){
+        binding.backArrow.setOnClickListener {
+            findNavController().navigate(R.id.action_riderSignInFragment_to_riderOnboarding2Fragment2)
+        }
+        binding.login.setOnClickListener { loginRider() }
+    }
+
+    private fun loginRider(){
+
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RiderSignInFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             RiderSignInFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
                 }
             }
     }

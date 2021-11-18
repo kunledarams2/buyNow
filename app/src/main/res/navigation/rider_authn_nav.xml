@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_riderOnboarding2Fragment2_to_riderSignInFragment2"
             app:destination="@id/riderSignInFragment" />
+        <action
+            android:id="@+id/action_riderOnboarding2Fragment2_to_riderOnboardingFragment2"
+            app:destination="@id/riderOnboardingFragment2" />
     </fragment>
     <fragment
         android:id="@+id/riderSignInFragment"
@@ -31,6 +34,9 @@
         <action
             android:id="@+id/action_riderSignInFragment2_to_loginSuccessFragment"
             app:destination="@id/loginSuccessFragment" />
+        <action
+            android:id="@+id/action_riderSignInFragment_to_riderOnboarding2Fragment2"
+            app:destination="@id/riderOnboarding2Fragment2" />
     </fragment>
     <include app:graph="@navigation/rider_nav" />
     <fragment
