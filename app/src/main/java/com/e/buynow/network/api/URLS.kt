@@ -15,4 +15,5 @@ object URLS {
     const val PRODUCT = "products"
 
     const val createRiderAccount = "riders"
+    const val loginRider = "riders/auth"
 }

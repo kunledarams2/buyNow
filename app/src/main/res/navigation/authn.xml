@@ -9,7 +9,11 @@
         android:id="@+id/forgottenPassword"
         android:name="com.e.buynow.view.fragment.authn.ForgottenPassword"
         android:label="fragment_forgotten_password"
-        tools:layout="@layout/fragment_forgotten_password" />
+        tools:layout="@layout/fragment_forgotten_password" >
+        <action
+            android:id="@+id/action_forgottenPassword_to_signUp"
+            app:destination="@id/signUp" />
+    </fragment>
     <fragment
         android:id="@+id/signUp"
         android:name="com.e.buynow.view.fragment.authn.SignUp"

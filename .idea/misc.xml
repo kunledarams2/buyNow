@@ -15,8 +15,19 @@
         <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout-v28/bottom_dialog_cont_shopping.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/activity_authn.xml" value="0.209375" />
         <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/activity_rider_authn.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/activity_rider_main.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/content_home.xml" value="0.10182370820668693" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/deals_item.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_add_new_address.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_cart.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_cart_check_out.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_categories.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_forgotten_password.xml" value="0.209375" />
         <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_home.xml" value="0.209375" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_home_shopping.xml" value="0.209375" />
         <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_login_success.xml" value="0.18" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_reset_password.xml" value="0.10182370820668693" />
+        <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_rider_bottom_nav.xml" value="0.209375" />
         <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_rider_dashboard.xml" value="0.209375" />
         <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_rider_home.xml" value="0.3493975903614458" />
         <entry key="..\:/Users/alabi/AndroidStudioProjects/buyNow/app/src/main/res/layout/fragment_rider_main_fragment.xml" value="0.209375" />

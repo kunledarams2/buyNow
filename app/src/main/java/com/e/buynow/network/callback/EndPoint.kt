@@ -1,10 +1,7 @@
 package com.e.buynow.network.callback
 
 import com.android_dr_app.network.NetworkResponse
-import com.e.buynow.model.Categories
-import com.e.buynow.model.Deals
-import com.e.buynow.model.Product
-import com.e.buynow.model.User
+import com.e.buynow.model.*
 import com.e.buynow.network.api.URLS
 import kotlinx.coroutines.flow.Flow
 import okhttp3.ResponseBody
@@ -51,4 +48,11 @@ interface EndPoint {
         @Header("Authorization") token:String,
         @QueryMap hashMap: HashMap<String, Any>,
     ):NetworkResponse<Product,Product>
+
+    @FormUrlEncoded
+    @Headers("Accept:application/json", "Content-Type:application/x-www-form-urlencoded")
+    @POST(URLS.loginRider)
+    suspend fun loginRider(
+        @FieldMap  hashMap: HashMap<String, Any>
+    ):NetworkResponse<Rider, Rider>
 }

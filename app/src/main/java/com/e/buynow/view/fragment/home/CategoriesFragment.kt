@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.e.buynow.R
 import com.e.buynow.databinding.FragmentCategoriesBinding
 import com.e.buynow.model.CategoriesData
 import com.e.buynow.util.GeneralUtils
@@ -52,6 +54,9 @@ class CategoriesFragment : BaseFragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentCategoriesBinding.inflate(inflater, container, false)
+        binding.navBack.setOnClickListener{
+            findNavController().navigate(R.id.action_categoriesFragment_to_homeShoppingFragment2)
+        }
         return binding.root
     }
 

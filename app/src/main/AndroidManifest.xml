@@ -15,6 +15,9 @@
         android:theme="@style/Theme.BuyNow"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.activity.RiderMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activity.RiderAuthnActivity"
             android:exported="false" />
         <activity android:name=".view.activity.ExitActivity" />

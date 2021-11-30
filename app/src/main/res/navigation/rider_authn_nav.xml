@@ -3,28 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rider_authn"
-    app:startDestination="@id/riderOnboardingFragment2">
+    app:startDestination="@id/riderOnboardingFragment">
 
     <fragment
-        android:id="@+id/riderOnboardingFragment2"
-        android:name="com.e.buynow.view.fragment.rider.RiderOnboardingFragment"
+        android:id="@+id/riderOnboardingFragment"
+        android:name="com.e.buynow.view.fragment.rider.authn.RiderOnboardingFragment"
         android:label="fragment_rider_onboarding"
         tools:layout="@layout/fragment_rider_onboarding" >
         <action
-            android:id="@+id/action_riderOnboardingFragment2_to_riderOnboarding2Fragment2"
-            app:destination="@id/riderOnboarding2Fragment2" />
+            android:id="@+id/action_riderOnboardingFragment_to_riderOnboarding2Fragment"
+            app:destination="@id/riderOnboarding2Fragment" />
     </fragment>
     <fragment
-        android:id="@+id/riderOnboarding2Fragment2"
-        android:name="com.e.buynow.view.fragment.rider.RiderOnboarding2Fragment"
+        android:id="@+id/riderOnboarding2Fragment"
+        android:name="com.e.buynow.view.fragment.rider.authn.RiderOnboarding2Fragment"
         android:label="fragment_rider_onboarding2"
         tools:layout="@layout/fragment_rider_onboarding2" >
         <action
-            android:id="@+id/action_riderOnboarding2Fragment2_to_riderSignInFragment2"
+            android:id="@+id/action_riderOnboarding2Fragment_to_riderSignInFragment"
             app:destination="@id/riderSignInFragment" />
         <action
-            android:id="@+id/action_riderOnboarding2Fragment2_to_riderOnboardingFragment2"
-            app:destination="@id/riderOnboardingFragment2" />
+            android:id="@+id/action_riderOnboarding2Fragment_to_riderOnboardingFragment"
+            app:destination="@id/riderOnboardingFragment" />
     </fragment>
     <fragment
         android:id="@+id/riderSignInFragment"
@@ -32,11 +32,11 @@
         android:label="fragment_rider_sign_in"
         tools:layout="@layout/fragment_rider_sign_in" >
         <action
-            android:id="@+id/action_riderSignInFragment2_to_loginSuccessFragment"
+            android:id="@+id/action_riderSignInFragment_to_loginSuccessFragment"
             app:destination="@id/loginSuccessFragment" />
         <action
             android:id="@+id/action_riderSignInFragment_to_riderOnboarding2Fragment2"
-            app:destination="@id/riderOnboarding2Fragment2" />
+            app:destination="@id/riderOnboarding2Fragment" />
     </fragment>
     <include app:graph="@navigation/rider_nav" />
     <fragment
